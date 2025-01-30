@@ -1,0 +1,22 @@
+---
+title: (Deprecated) Make Deposit Savings Account Transaction
+openapi: 'POST /savingsaccounts/24/deposit'
+---
+
+# (Deprecated) Make Deposit Savings Account Transaction
+
+This endpoint is responsible for initiating a Deposit Savings Account transaction on a particular savings account that's identified by its `savingsAccountId`.
+
+##### Path Parameters
+
+| **Attribute** | **Type** | **Description** |
+| --- | --- | --- |
+| savingsAccountId | String | This describes the `id` of the savings account. |
+
+##### Body Parameters
+
+| Field | Description | Type |
+| --- | --- | --- |
+| transactionDate | The date of the transaction | String |
+| transactionAmount | The transaction amount. | String |
+

@@ -1,0 +1,45 @@
+---
+title: Rate Limiting
+description: "Welcome to the home of your new documentation"
+icon: hourglass
+---
+
+# API Rate Limiting
+
+Rate limiting is a crucial mechanism used by APIs to control the number of requests that a client can make within a specific time period. It helps prevent abuse, ensures fair usage, and maintains the performance of the API for all users.
+
+This guide will explain what rate limiting is, how it works, and how you can handle rate limits effectively in your applications.
+
+---
+
+## What is Rate Limiting?
+
+Rate limiting is the practice of restricting the number of API requests a client can make in a given time frame. It is implemented to protect the API from being overwhelmed by too many requests in a short period, ensuring that the server remains responsive for all users.
+
+Common rate limiting strategies include:
+
+- **Fixed Window**: A fixed time period (e.g., 1 minute) during which a set number of requests are allowed.
+- **Sliding Window**: A more dynamic approach where the time period "slides" with each request, limiting the number of requests within a given window.
+- **Leaky Bucket**: Requests are allowed at a steady rate, and excess requests are discarded.
+- **Token Bucket**: Requests are granted as long as tokens are available in the bucket, and tokens refill at a constant rate.
+
+---
+
+## Rate Limiting Header Information
+
+When an API request is rate-limited, the response will usually include headers indicating the status of the rate limit. These headers provide important information about the limits and your current usage.
+
+### Common Rate Limiting Headers
+
+- `X-Rate-Limit-Limit`: The maximum number of requests that can be made in a given time period (e.g., 1000 requests per hour).
+- `X-Rate-Limit-Remaining`: The number of requests remaining in the current time window.
+- `X-Rate-Limit-Reset`: The time at which the rate limit will reset, typically expressed in Unix epoch time (seconds).
+- `Retry-After`: The time (in seconds) that you need to wait before sending a new request after hitting the rate limit.
+
+Example response headers:
+
+```http
+X-Rate-Limit-Limit: 1000
+X-Rate-Limit-Remaining: 990
+X-Rate-Limit-Reset: 1611172800
+Retry-After: 30

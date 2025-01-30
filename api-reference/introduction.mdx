@@ -1,33 +1,57 @@
 ---
 title: 'Introduction'
-description: 'Example section for showcasing API endpoints'
+description: 'API Reference for Woodcore integrations'
+icon: play
 ---
 
+
+Welcome to Woodcore simplified api endpoints, these are dedicated customer friendly endpoints mostly used by financial institutions on our SAAS. 
+
+Start your journey in the following steps
+<Steps>
+  <Step title="Authenticate">
+    Create your API keys using the [authentication guide](/api-reference/authentication)
+  </Step>
+  <Step title="Webhook">
+    Create and configure your [webhook](/api-reference/notifications) (if neccesary)
+  </Step>
+  <Step title="Start Building">
+    Start building solutions on Woodcore simplified API's
+  </Step>
+</Steps>
+
+
 <Note>
-  If you're not looking to build API reference documentation, you can delete
-  this section by removing the api-reference folder.
+ For Legacy API's for on-premise customers please contact **business@woodcore.co**
 </Note>
 
-## Welcome
+<CardGroup cols={2}>
+  <Card title="Customer" icon="user" href="/api-reference/endpoint/create_clients">
+   Build and manage your `CIF` and other customer profiles
+  </Card>
+  <Card title="Loan" icon="landmark" href="/api-reference/endpoint/loans_342_repayment">
+    Build and manage your loans as standard loans or BNPL
+  </Card>
+  <Card title="Deposits" icon="flag" href="/api-reference/endpoint/create_savingsaccounts">
+   Build and manage accounts that hold balance as `savings`, `currenct` or `checking` account
+  </Card>
+  <Card title="Fixed Deposits" icon="hourglass" href="/api-reference/endpoint/fixeddepositaccounts_690_activate">
+    Build and manage fixed deposit assets
+  </Card>
+  <Card title="Transactions" icon="receipt" href="/api-reference/endpoint/transactions">
+   Perform and manage all transactions with clear visibility
+  </Card>
+  <Card title="Charges" icon="file-invoice" href="/api-reference/endpoint/charges">
+    Build and implement charges on your products
+  </Card>
+   <Card title="Accounting" icon="calculator" href="/api-reference/endpoint/create_ledger">
+    Implement accounting methodologies for banking oprtaions
+  </Card>
+  <Card title="Configurations" icon="gear" href="/api-reference/endpoint/codes">
+   Basic configuruations that can be done via API
+  </Card>
+  <Card title="Integrations" icon="code" href="/api-reference/endpoint/clients_searchbybvn_23737828392">
+    Integrations, country specific like `nip` `swift` `sepa` `iso 8583`
+  </Card>
+</CardGroup>
 
-There are two ways to build API documentation: [OpenAPI](https://mintlify.com/docs/api-playground/openapi/setup) and [MDX components](https://mintlify.com/docs/api-playground/mdx/configuration). For the starter kit, we are using the following OpenAPI specification.
-
-<Card
-  title="Plant Store Endpoints"
-  icon="leaf"
-  href="https://github.com/mintlify/starter/blob/main/api-reference/openapi.json"
->
-  View the OpenAPI specification file
-</Card>
-
-## Authentication
-
-All API endpoints are authenticated using Bearer tokens and picked up from the specification file.
-
-```json
-"security": [
-  {
-    "bearerAuth": []
-  }
-]
-```

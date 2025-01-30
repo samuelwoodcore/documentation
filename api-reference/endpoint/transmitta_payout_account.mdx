@@ -1,0 +1,50 @@
+---
+title: Get Payout Account
+openapi: 'GET /{transmitta}/payout/account'
+---
+
+# Get Payout Account
+
+This endpoint is used to create a Virtual Nuban for a customer who is also created simultaneously.
+
+### Body Parameters
+
+| **Parameter** | **Description** | **Type** |
+| --- | --- | --- |
+| firstname | This describes the first name of the customer. | String |
+| lastname | This describes the last name of the customer. | String |
+| emailAddress | This is the email address of the customer. | String |
+| mobileNo | This describes the mobile phone number of the customer. | String |
+| street | Describes the street address of the customer. | String |
+| state | Describes the state address of the customer. | String |
+| country | Describes the country address of the customer. | String |
+| dateOfBirth | This describes the date of birth of the customer. | String |
+| productId | This is the `id` of the Savings product the `savingsAccountNo` of the customer would be attached to. | Integer |
+| bvn | Describes the customer's bank verification number. | String |
+| clientType | This describes the type of customer being created. The two types of customers available are: individual, and corporate. | String |
+
+---
+title: Create Payout Account
+openapi: 'POST /{transmitta}/payout/account'
+---
+
+# Create Payout Account
+
+This endpoint is used to create a Virtual Nuban for a customer who is also created simultaneously.
+
+### Body Parameters
+
+| **Parameter** | **Description** | **Type** |
+| --- | --- | --- |
+| firstname | This describes the first name of the customer. | String |
+| lastname | This describes the last name of the customer. | String |
+| emailAddress | This is the email address of the customer. | String |
+| mobileNo | This describes the mobile phone number of the customer. | String |
+| street | Describes the street address of the customer. | String |
+| state | Describes the state address of the customer. | String |
+| country | Describes the country address of the customer. | String |
+| dateOfBirth | This describes the date of birth of the customer. | String |
+| productId | This is the `id` of the Savings product the `savingsAccountNo` of the customer would be attached to. | Integer |
+| bvn | Describes the customer's bank verification number. | String |
+| clientType | This describes the type of customer being created. The two types of customers available are: individual, and corporate. | String |
+

@@ -1,0 +1,84 @@
+
+import os
+import json
+from collections import OrderedDict
+
+# Load the OpenAPI file
+openapi_file_path = "api-reference/openapi.json"  # Replace with your file path
+output_directory = "./api-reference/endpoint"  # Directory to save the .mdx files
+json_output_path = "./api-reference/pages.json"  # Path to save the generated JSON
+
+# Ensure the output directory exists
+os.makedirs(output_directory, exist_ok=True)
+
+# Load the OpenAPI specification while maintaining the order of paths
+with open(openapi_file_path, "r") as file:
+    openapi_data = json.load(file, object_pairs_hook=OrderedDict)
+
+# Initialize a list to store paths for the JSON file
+mdx_file_paths = []
+
+# Function to handle each path and generate MDX content
+def process_path(path, methods):
+    # Create a sanitized file name based on the path
+    file_name = path.strip("/").replace("/", "_").replace("{", "").replace("}", "") or "root"
+    file_path = os.path.join(output_directory, f"{file_name}.mdx")
+
+    # Add the file path without extension to the JSON structure
+    mdx_file_paths.append(f"{output_directory}/{file_name}".replace(".mdx", ""))
+
+    # Check if methods is a dictionary
+    if isinstance(methods, dict):
+        for method, details in methods.items():
+            # Ensure details is a dictionary
+            if isinstance(details, dict):
+                # Extract details
+                title = details.get("summary", "No Title")
+                description = details.get("description", "No Description")
+                openapi_reference = f"{method.upper()} {path}"
+
+                # Extract parameters if available
+                parameters = details.get("parameters", [])
+                parameters_description = ""
+                if isinstance(parameters, list):
+                    for param in parameters:
+                        param_name = param.get("name", "unknown")
+                        param_in = param.get("in", "unknown")
+                        param_required = param.get("required", False)
+                        param_schema = param.get("schema", {})
+                        param_type = param_schema.get("type", "unknown")
+                        param_example = param_schema.get("example", "none")
+
+                        parameters_description += f"- **{param_name}** ({param_in}, {param_type}, required: {param_required}): Example: `{param_example}`\n"
+
+                # Write the MDX file
+                with open(file_path, "a") as mdx_file:  # Append if multiple methods exist for the same path
+                    mdx_file.write(f"---\n")
+                    mdx_file.write(f"title: {title}\n")
+                    mdx_file.write(f"openapi: '{openapi_reference}'\n")
+                    mdx_file.write(f"---\n\n")
+                    mdx_file.write(f"# {title}\n\n")
+                    mdx_file.write(f"{description}\n\n")
+                    if parameters_description:
+                        mdx_file.write(f"## Parameters\n\n{parameters_description}\n")
+            else:
+                print(f"Skipping invalid method details for {method.upper()} {path}: {details}")
+    else:
+        print(f"Skipping invalid path structure for {path}: {methods}")
+
+
+# Process each path in the OpenAPI spec in order
+for path, methods in openapi_data.get("paths", OrderedDict()).items():
+    process_path(path, methods)
+
+# Write the JSON file
+pages_json = {
+    "group": "Paths",
+    "pages": mdx_file_paths  # Add all processed file paths without .mdx extension
+}
+
+with open(json_output_path, "w") as json_file:
+    json.dump(pages_json, json_file, indent=2)
+
+print(f"Generated .mdx files in the directory: {output_directory}")
+print(f"Generated JSON file: {json_output_path}")

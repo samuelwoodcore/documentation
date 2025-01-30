@@ -1,0 +1,158 @@
+---
+title: Hook & Events
+description: "Sending webhook events for actions on Woodcore"
+icon: "webhook"
+---
+
+Webhooks are a powerful tool for integrating real-time notifications into your application. They allow your system to receive updates when specific events occur on Woodcore, without needing to poll for changes. This guide explains how webhooks work on Woodcore, how to use them, and recommened practices for handling events effectively.
+
+
+### Alloweds Events
+
+There are just a few limitations with the type of events that can trigger a hook on Woodcore. Almsot all the `POST` event are webhook enabled and you have the flexiblity to turn it on or off, disable or enable the hook and event based on your specific requirements.
+
+
+### Event Data & Security
+
+Some perculiar details are sent on the header and body of every event, they're signed and also travel with the signature for client's server validation. See example below;
+
+```http
+POST /your_hook_path HTTP/1.1
+Content-Type: application/json
+x-wc-signature: e90f7a24c9009a07f4b404d1f40eefd26dac062e64bbb65781e99b099f864073
+x-wc-user-action: action
+x-wc-instruction: do not use if signature does not match
+
+{
+    event: "taxes-group",
+    status: 200,
+    event_state: "event.success",
+    reference: "FMCS5sEAshkvhiAyDtnA",
+    data: {
+        request: null,
+        response: {
+            date_format: "dd MMMM yyyy",
+            locale: "en",
+            name: "tax group 1",
+            resourceId: 55,
+            tax_components: [
+                {
+                    start_date: "11 April 2016",
+                    tax_component_id: 7
+                }
+            ]
+        }
+    }
+}
+```
+
+Here are some comon ways to sign and validate the event hook on your server - AI can also be helpful generating usefull samples for you based on the language you write.
+
+<Tabs>
+  <Tab title="Javascript">
+```javascript
+const signature = crypto
+  .createHmac("sha256", api_key)
+  .update(JSON.stringify(req.body))
+  .digest("hex");
+if (signature == req.headers["x-swim-token"]) {
+  // Body is signed and valid. Goodluck
+}
+```
+
+  </Tab>
+
+  <Tab title="Java">
+```java
+package hmacexample;
+import java.io.UnsupportedEncodingException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+import javax.crypto.Mac;
+import javax.crypto.spec.SecretKeySpec;
+import javax.xml.bind.DatatypeConverter;
+import org.json.JSONException;
+import org.json.JSONObject;
+public class HMacExample {
+  public static void main(String[] args) throws UnsupportedEncodingException, InvalidKeyException, NoSuchAlgorithmException, JSONException {
+    String key = "YOUR_API_KEY"; //replace with your key
+    String rawJson = "{}";
+    JSONObject body = new JSONObject(rawJson);
+    String result = "";
+    String HMAC_SHA256 = "HmacSHA256";
+    String signature = ""; //put in the request's header value for x-swim-token
+    byte [] byteKey = key.getBytes("UTF-8");
+    SecretKeySpec keySpec = new SecretKeySpec(byteKey, HMAC_SHA256);
+    Mac sha256_HMAC = Mac.getInstance(HMAC_SHA256);      
+    sha256_HMAC.init(keySpec);
+    byte [] mac_data = sha256_HMAC.
+    doFinal(body.toString().getBytes("UTF-8"));
+    result = DatatypeConverter.printHexBinary(mac_data);
+    if(result.toLowerCase().equals(signature)) {
+      // you can trust the event, it came from woodcore
+      // respond with the http 200 response immediately before attempting to process the response
+    }else{
+      // this isn't from woodcore, ignore it
+    }  
+  }
+}
+```
+  </Tab>
+
+  <Tab title="Golang">
+```go
+package main
+
+import (
+    "crypto/hmac"
+    "crypto/sha256"
+    "encoding/hex"
+    "fmt"
+    "net/http"
+    "io/ioutil"
+)
+
+func main() {
+    apiKey := "YOUR_API_KEY" // replace with your woodcore
+    reqBody := `{"example": "data"}` // replace with actual request body
+
+    // Create HMAC-SHA256 signature
+    h := hmac.New(sha256.New, []byte(apiKey))
+    h.Write([]byte(reqBody))
+    signature := hex.EncodeToString(h.Sum(nil))
+
+    // Simulate incoming request with headers
+    req, err := http.NewRequest("POST", "https://example.com", nil)
+    if err != nil {
+        fmt.Println("Error creating request:", err)
+        return
+    }
+    req.Header.Set("x-swim-token", signature)
+
+    // Read the x-swim-token header from the request
+    xSwimToken := req.Header.Get("x-swim-token")
+
+    // Verify the signature
+    if signature == xSwimToken {
+        fmt.Println("Body is signed and valid. Good luck")
+    } else {
+        fmt.Println("Invalid signature")
+    }
+}
+```
+  </Tab>
+  <Tab title="Python">
+```python
+import hmac
+import hashlib
+signature = request.headers.get("x-wc-signature")
+key = secret_key.encode("utf-8")
+mes = json.dumps(payload, separators=(',', ':')).encode("utf-8")
+encoded_payload = hmac.new(key, mes, hashlib.sha256).hexdigest()
+if encoded_payload == signature:
+   return True
+else:
+   return False
+```
+  </Tab>
+</Tabs>

@@ -1,0 +1,41 @@
+---
+title: Request & Response
+description: "Welcome to the home of your new documentation"
+icon: clone
+---
+
+# API Requests and Responses
+
+In this guide, we will cover how to structure API requests, the expected format for sending data, and how to handle responses from the API. Proper understanding and handling of requests and responses are essential for building a seamless integration with our API.
+
+---
+
+## API Request Format
+
+All requests to our API must follow a specific format to ensure they are processed correctly. Each request consists of several components, including the request method, headers, parameters, and body.
+
+### 1. Request Method
+
+The HTTP method determines the action to be performed on the API resource. The most common methods are:
+
+- **GET**: Retrieve data from the server.
+- **POST**: Submit data to the server.
+- **PUT**: Update existing data.
+- **DELETE**: Delete data from the server.
+  
+### 2. Request Headers
+
+Headers provide additional information to the server about the request. Some important headers include:
+
+- **Authorization**: Required for authenticating the request. Typically, this contains an API key or token.
+- **Content-Type**: Specifies the format of the request body (e.g., `application/json` for JSON data).
+- **Accept**: Specifies the format in which the client expects the response (e.g., `application/json`).
+
+Example:
+
+```http
+GET /api/v1/resource HTTP/1.1
+Host: api.example.com
+Authorization: Bearer YOUR_API_KEY
+Accept: application/json
+```

@@ -1,0 +1,25 @@
+---
+title: "Changelog"
+icon: "megaphone"
+description: "Find Woodcore APIs' updates."
+---
+
+<Note>
+  Only keep those starting from 2025 here; the previous ones will not be
+  included.
+</Note>
+
+## January, 2025
+
+#### Balance Calulation Update
+Deposit account balance will not longer be calculted real-time on the system, when a transaction is completed the balance will remain the same way until either the following happens;
+- Balance will get updated after **30 mins**
+- Pass `refresh` as `true` to the `/savingsaccounts/{savingsId}` endpoint as a query param. see example below
+
+```curl 
+curl -X GET "https://base.com/savingsaccounts/{savingsId}?refresh=true" -H "Accept: application/json"
+```
+<Note>
+  If `refresh` is not set as `true` the current balance as is will be returned
+</Note>
+

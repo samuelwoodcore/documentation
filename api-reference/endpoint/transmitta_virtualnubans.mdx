@@ -1,0 +1,25 @@
+---
+title: Get Virtual Nubans
+openapi: 'GET /{transmitta}/virtualnubans'
+---
+
+# Get Virtual Nubans
+
+Retrieve all Virtual Nubans with their corresponding details.
+
+**Note**: This endpoint is equipped with pagination queries e.g., `page` and `perPage` filters for advanced querying.
+
+### Query Parameters
+
+| **Parameter** | **Description** |
+| --- | --- |
+| page | Describes the page to retrieve. |
+| perPage | Describes how many results should be returned per page. |
+
+## Parameters
+
+- **start_date** (query, string, required: False): Example: `2022-09-22`
+- **end_date** (query, string, required: False): Example: `2022-10-03`
+- **page** (query, string, required: False): Example: `1`
+- **perPage** (query, string, required: False): Example: `3`
+

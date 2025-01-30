@@ -1,0 +1,30 @@
+---
+title: Environments
+description: "Guide for the environmencts on Woodcore"
+icon: "layer-group"
+iconType: "light"
+---
+
+
+Our API provides two distinct environments for integration: **Sandbox** and **Live**. Each environment serves a unique purpose and has specific requirements for access and usage. However, both environments have similar behaviour but with different security covrage. Stay with me...
+
+
+The **Sandbox** environment is designed for testing and development. It allows you to simulate API requests and responses without affecting real-world data. Worry not becasue you will have the exact same experince on the production environment.
+
+
+### Base URLs
+- **Sandbox Environment**:  `https://spark.test.woodcore.co/api/v2`
+- **Production Environment**:  `https://api.woodcore.co/api/v2`
+
+<Note>
+ We encourage you to change your base URL from `woodcoreapp.com` if you still have it in use to `woodcore.co`. The `woodcoreapp.com` will be depreciated soon.
+</Note>
+
+
+### Live (Production) Environment
+
+The Live environment is used for production purposes, where all operations process real-world data. This environment requires strict security measures to ensure data integrity and compliance. Below are some things to take note of before requesting for a go-live access on Woodcore.
+
+- Every API Request must come from the whitelisted IP
+- Based on request, your API can be wrapped into a VPN, this means you have to establish a site to site vpn connection with Woodcore to get it working `depreciated feature`
+- Every request you make has a TLS Encryption

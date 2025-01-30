@@ -1,0 +1,8 @@
+---
+title: Activate Client
+openapi: 'POST /clients/{clientId}/activate'
+---
+
+<Note>This API can be used when `_isActive:true` is not passed in the request body of customer creation.</Note>
+
+<Warning>Clients can be created in a pending state but If the client is already active, this API will result in an error. </Warning>

@@ -1,84 +1,269 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Starter Kit",
+  "name": "Deveeloper HUB — Woodcore",
   "logo": {
-    "dark": "/logo/dark.svg",
-    "light": "/logo/light.svg"
+    "dark": "/logo/logo.svg",
+    "light": "/logo/logo.svg"
   },
   "favicon": "/favicon.svg",
+  "feedback": {
+    "thumbsRating": true
+  },
+  "theme": "venus",
+  "customCSS": "styles.css",
+  "sidebar": {},
+  "metadata": {
+    "og:image": "https://res.cloudinary.com/dko7n7x16/image/upload/v1735379313/wcfavicon_oxpolv.svg",
+    "og:site_name": "API Documentation - Woodcore",
+    "og:description": "Woodcore Documentation & Guide",
+    "og:url": "https://docs.woodcore.co",
+    "og:locale": "en",
+    "og:logo": "https://res.cloudinary.com/dko7n7x16/image/upload/v1719298807/logo_kogluj.png",
+    "og:twitter:title": "Woodcore Documentation & Guide",
+    "og:twitter:description": "Woodcore Documentation & Guide",
+    "og:twitter:url": "https://docs.woodcore.co",
+    "og:twitter:image": "https://res.cloudinary.com/dko7n7x16/image/upload/v1735379313/wcfavicon_oxpolv.svg",
+    "og:twitter:site": "https://x.com/woodcore",
+    "og:title": "API Documentation - Woodcore"
+  },
   "colors": {
-    "primary": "#0D9373",
-    "light": "#07C983",
-    "dark": "#0D9373",
+    "primary": "#2C1DFF",
+    "light": "#2C1DFF",
+    "dark": "#2C1DFF",
     "anchors": {
-      "from": "#0D9373",
-      "to": "#07C983"
+      "from": "#2C1DFF",
+      "to": "#2C1DFF"
     }
+  },
+  "font": {
+    "family": "Open Sans",
+    "weight": 100,
+    "url": "https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"
   },
   "topbarLinks": [
     {
-      "name": "Support",
-      "url": "mailto:hi@mintlify.com"
+      "name": "Core Banking",
+      "url": "https://woodcore.co/core-banking-platform"
+    },
+    {
+      "name": "Resources",
+      "url": "https://woodcore.co/integrations"
     }
   ],
   "topbarCtaButton": {
-    "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
+    "name": "Contact",
+    "url": "https://woodcore.co/contact"
   },
   "tabs": [
     {
-      "name": "API Reference",
-      "url": "api-reference",
-      "openapi": "/api-reference/openapi.json"
+      "name": "API Reference ᴬᴾᴵ",
+      "url": "api-reference"
+    },
+    {
+      "name": "Changelog",
+      "url": "changelog"
     }
   ],
   "anchors": [
     {
-      "name": "Documentation",
-      "icon": "book-open-cover",
-      "url": "https://mintlify.com/docs"
-    },
-    {
-      "name": "Community Slack",
+      "name": "Community",
       "icon": "slack",
-      "url": "https://mintlify.com/community"
+      "url": "#"
     },
     {
-      "name": "Blog",
-      "icon": "newspaper",
-      "url": "https://mintlify.com/blog"
+      "name": "API Status",
+      "icon": "signal",
+      "url": "https://status.woodcore.co"
+    },
+    {
+      "name": "Demo",
+      "icon": "window",
+      "url": "https://woodcore.co/contact"
     }
   ],
   "navigation": [
+    
     {
       "group": "Get Started",
       "pages": [
-        "introduction",
-        "quickstart",
-        "development"
+        "start/overview",
+        "start/pagination",
+        "start/environments",
+        "start/authentication",
+        "start/errors",
+        "start/notifications"
       ]
     },
     {
-      "group": "Essentials",
+      "group": "Standard Use Cases",
       "pages": [
-        "essentials/markdown",
-        "essentials/code",
-        "essentials/images",
-        "essentials/settings",
-        "essentials/navigation",
-        "essentials/reusable-snippets"
+        "usecase/baas",
+        "usecase/digitalbank",
+        "usecase/bnpl",
+        "usecase/lms",
+        "usecase/asset",
+        "usecase/gateway",
+        "usecase/payments",
+        "usecase/card"
       ]
     },
     {
       "group": "API Documentation",
       "pages": [
-        "api-reference/introduction"
+        "api-reference/introduction",
+        "api-reference/authentication"
       ]
     },
     {
-      "group": "Endpoint Examples",
+      "group": "Changelog",
       "pages": [
-        "api-reference/endpoint/get"
+        "changelog/logs"
+      ]
+    },
+    {
+      "group": "Customer",
+      "pages": [
+        "api-reference/endpoint/create_clients",
+        "api-reference/endpoint/clients_1733_activate",
+        "api-reference/endpoint/clients_1733_updateTier",
+        "api-reference/endpoint/clients_images_1",
+        "api-reference/endpoint/clients_document_34005",
+        "api-reference/endpoint/clients",
+        "api-reference/endpoint/clients_415",
+        "api-reference/endpoint/clients_searchbyphone_09117258911",
+        "api-reference/endpoint/clients_searchbyeaccountnumber_000001733",
+        "api-reference/endpoint/clients_1093_accounts",
+        "api-reference/endpoint/clients_405_documents",
+        "api-reference/endpoint/clients_405_documents_107",
+        "api-reference/endpoint/clients_410_images",
+        "api-reference/endpoint/clients_individual_415",
+        "api-reference/endpoint/clients_corporate_34352"
+      ]
+    },
+    {
+      "group": "Loan Account",
+      "pages": [
+        "api-reference/endpoint/loans_342_repayment",
+        "api-reference/endpoint/loans_329_reject",
+        "api-reference/endpoint/loans_7_disburse",
+        "api-reference/endpoint/loans_16_disbursetosavings",
+        "api-reference/endpoint/loans_74_undodisburse",
+        "api-reference/endpoint/loans_74_foreclosure",
+        "api-reference/endpoint/loans_75_waiveInterest",
+        "api-reference/endpoint/loans_75_writeoff",
+        "api-reference/endpoint/loans_75_recoverypayment",
+        "api-reference/endpoint/loans_75_undowriteoff",
+        "api-reference/endpoint/loans_95_foreclosurewithlinkedsavings",
+        "api-reference/endpoint/loans_calculate",
+        "api-reference/endpoint/loans_17_approve",
+        "api-reference/endpoint/loans_75_unapprove",
+        "api-reference/endpoint/loans_75_transactions",
+        "api-reference/endpoint/loans_75_transactions_572",
+        "api-reference/endpoint/loans",
+        "api-reference/endpoint/loans_2_repaymentSchedule",
+        "api-reference/endpoint/loans_217",
+        "api-reference/endpoint/loans_75_modify"
+      ]
+    },
+    {
+      "group": "Deposit Account",
+      "pages": [
+        "api-reference/endpoint/create_savingsaccounts",
+        "api-reference/endpoint/savingsaccounts_573_activate",
+        "api-reference/endpoint/savingsaccounts_6_pool",
+        "api-reference/endpoint/savingsaccounts_2_lien",
+        "api-reference/endpoint/savingsaccounts_2_lien_195401",
+        "api-reference/endpoint/savingsaccounts_2_lien_withdraw_184801",
+        "api-reference/endpoint/savingsaccounts_459_block",
+        "api-reference/endpoint/savingsaccounts_459_unblock",
+        "api-reference/endpoint/savingsaccounts_458_setpnc",
+        "api-reference/endpoint/savingsaccounts_688_removepnc",
+        "api-reference/endpoint/savingsaccounts_688_setpnd",
+        "api-reference/endpoint/savingsaccounts_688_removepnd",
+        "api-reference/endpoint/savingsaccounts_2_transactions_79",
+        "api-reference/endpoint/savingsaccounts_1_lien",
+        "api-reference/endpoint/savingsaccounts_695_transactions",
+        "api-reference/endpoint/savingsaccounts_2_transactions_80526687-e86e-4c07-84fa-33d256d0e68a",
+        "api-reference/endpoint/savingsaccounts_utilities_downloadReceipt_1",
+        "api-reference/endpoint/savingsaccounts_424_charges",
+        "api-reference/endpoint/savingsaccounts_424_charges_8",
+        "api-reference/endpoint/savingsaccounts_searchbyeaccountnumber_000000001",
+        "api-reference/endpoint/savingsaccounts",
+        "api-reference/endpoint/savingsaccounts_61",
+        "api-reference/endpoint/savingsaccounts_searchbyeaccountnumber_000000695"
+      ]
+    },
+    {
+      "group": "Fixed Deposit Account",
+      "pages": [
+        "api-reference/endpoint/fixeddepositaccounts_690_activate",
+        "api-reference/endpoint/fixeddepositaccounts_398_close",
+        "api-reference/endpoint/fixeddepositaccounts_1082_prematureClose",
+        "api-reference/endpoint/fixeddepositaccounts",
+        "api-reference/endpoint/fixeddepositaccounts_692"
+      ]
+    },
+    {
+      "group": "Transactions",
+      "pages": [
+        "api-reference/endpoint/transactions",
+        "api-reference/endpoint/transactions_4",
+        "api-reference/endpoint/journalentries",
+        "api-reference/endpoint/journalentries_804",
+        "api-reference/endpoint/accounttransfers",
+        "api-reference/endpoint/intratransfer_transaction_626",
+        "api-reference/endpoint/journalentries_PLRTRF_15620801726047104623_transactionstatus",
+        "api-reference/endpoint/journalentries_transactionstatus_9e8djd98ddw123",
+        "api-reference/endpoint/accountgl_system",
+        "api-reference/endpoint/intratransfer",
+        "api-reference/endpoint/accountgl",
+        "api-reference/endpoint/journalentries_804_reverse"
+      ]
+    },
+    {
+      "group": "Accounting",
+      "pages": [
+        "api-reference/endpoint/create_ledger",
+        "api-reference/endpoint/ledger",
+        "api-reference/endpoint/ledger_50",
+        "api-reference/endpoint/ledger__utilities_generateCode_LIABILITY"
+      ]
+    },
+    {
+      "group": "Charges",
+      "pages": [
+        "api-reference/endpoint/charges",
+        "api-reference/endpoint/charges_93"
+      ]
+    },
+    {
+      "group": "Configuration",
+      "pages": [
+        "api-reference/endpoint/codes",
+        "api-reference/endpoint/codes_29_codeValues",
+        "api-reference/endpoint/codes_codeValues",
+        "api-reference/endpoint/clienttiers",
+        "api-reference/endpoint/savingsproducts",
+        "api-reference/endpoint/savingsproducts_8",
+        "api-reference/endpoint/loanproducts",
+        "api-reference/endpoint/loanproducts_3",
+        "api-reference/endpoint/loanproducts_3_chargeOptions",
+        "api-reference/endpoint/loops",
+        "api-reference/endpoint/create_loops_entries",
+        "api-reference/endpoint/loops_entries_Additional Information_4"
+      ]
+    },
+    {
+      "group": "Region Specific",
+      "pages": [
+        {
+          "group": "Nigeria",
+          "pages": [
+            "api-reference/endpoint/clients_searchbybvn_23737828392",
+            "api-reference/endpoint/loops_entries_Bvn_427",
+            "api-reference/endpoint/savingsaccounts_nuban_1100074454"
+          ]
+        }
       ]
     }
   ],

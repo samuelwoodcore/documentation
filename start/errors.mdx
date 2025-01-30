@@ -1,0 +1,71 @@
+---
+title: Errors & Handling
+description: "Guide to custom error response and handling patterns"
+icon: bug
+---
+
+* **01 Passed Request:** 
+    * This means the request was either passed `200` or accepted `202`
+* **0 Failed Request:** 
+    * This means the request failed and the reasosn will be returned. This usually has a `404` `400` `403` HTTP response code
+* **500 Internal Server Error:** 
+    * An unexpected error occurred on the server side. This may be due to a bug, temporary system issue, or other unforeseen circumstances.
+
+## Error Responses
+
+When an error occurs, the API will typically return a JSON response with the following structure:
+
+<Tabs>
+  <Tab title="Passed">
+```json
+{
+    "status": "01",
+    "message": "Success",
+    "data": {}
+}
+```
+
+  </Tab>
+  <Tab title="Failed">
+```json
+{
+    "status": "0",
+    "message": "failed",
+    "data": {}
+}
+```
+  </Tab>
+  <Tab title="Internal Error">
+```json
+{
+    "status": "500",
+    "message": "failed",
+    "data": {}
+}
+```
+  </Tab>
+</Tabs>
+
+#### Error Handling
+
+    **Client-Side**:
+        Check the HTTP status code of the response.
+        If the status code indicates an error, parse the JSON response to extract the error details.
+        Display an appropriate error message to the user.
+        Implement retry logic for transient errors (e.g., network issues, temporary server errors) if necessary.
+
+    **Server-Side**:
+        Implement proper error logging to help diagnose and fix issues.
+        Use a consistent error handling mechanism throughout the API.
+        Consider using a centralized error handling library or framework.
+
+#### Best Practices
+
+    Provide clear and informative error messages.
+    Avoid exposing sensitive information in error messages.
+    Document all possible error codes and their corresponding messages.
+    Test error handling thoroughly.
+
+This document provides a general overview of API errors and their handling. Specific error handling mechanisms and responses may vary depending on the individual API endpoints and their functionality.
+
+Note: This is a basic template, and you may need to adjust it based on the specific needs and complexity of your API.

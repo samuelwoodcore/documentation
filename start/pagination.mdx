@@ -1,0 +1,93 @@
+---
+title: Pagination
+description: "Guide for ensure accurate pagination on Woodcore"
+icon: angles-right
+---
+
+Pagination is a technique used to divide a large set of data into smaller, manageable chunks, or "pages." This is particularly useful in web applications to improve performance and enhance user experience by loading data incrementally.
+
+#### Using `page` and `perPage` Parameters
+
+To implement pagination, two key parameters are commonly used:
+
+- **`page`**: Indicates the current page number.
+- **`perPage`**: Specifies the number of items to display per page.
+
+### Example Usage
+
+Assume you have an API endpoint that returns a list of items. You can use the `page` and `perPage` parameters to control the pagination:
+
+<Tabs>
+  <Tab title="Javascript">
+```javascript
+// Example API request in JavaScript
+const page = 1; // Current page number
+const perPage = 10; // Number of items per page
+
+fetch(`https://api.example.com/items?page=${page}&perPage=${perPage}`)
+  .then(response => response.json())
+  .then(data => {
+    console.log(data);
+  });
+```
+
+  </Tab>
+  <Tab title="Python">
+```python
+# Example API request in Python
+import requests
+
+page = 1  # Current page number
+perPage = 10  # Number of items per page
+
+url = f"https://api.example.com/items?page={page}&perPage={perPage}"
+response = requests.get(url)
+
+if response.status_code == 200:
+    data = response.json()
+    print(data)
+else:
+    print(f"Error: {response.status_code}")
+```
+  </Tab>
+  <Tab title="Golang">
+ ```go
+// Example API request in Go
+package main
+
+import (
+    "fmt"
+    "io/ioutil"
+    "net/http"
+)
+
+func main() {
+    page := 1      // Current page number
+    perPage := 10  // Number of items per page
+    url := fmt.Sprintf("https://api.example.com/items?page=%d&perPage=%d", page, perPage)
+
+    resp, err := http.Get(url)
+    if err != nil {
+        fmt.Println("Error:", err)
+        return
+    }
+    defer resp.Body.Close()
+
+    body, err := ioutil.ReadAll(resp.Body)
+    if err != nil {
+        fmt.Println("Error:", err)
+        return
+    }
+
+    fmt.Println(string(body))
+}
+```
+  </Tab>
+</Tabs>
+
+
+
+In this example, the API request fetches the first page of items, with 10 items per page. Adjusting the page and perPage values allows you to navigate through the dataset efficiently.
+
+Conclusion
+Pagination is an essential technique for managing large datasets in web applications. By using the page and perPage parameters, you can easily control the amount of data displayed and improve the overall performance and user experience of your application.
