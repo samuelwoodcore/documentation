@@ -35,9 +35,9 @@
     }
   },
   "modeToggle": {
-  "default": "light",
-  "isHidden": true
-},
+    "default": "light",
+    "isHidden": true
+  },
   "topbarLinks": [
     {
       "name": "Core Banking",
@@ -80,7 +80,6 @@
     }
   ],
   "navigation": [
-    
     {
       "group": "Get Started",
       "pages": [
@@ -260,6 +259,24 @@
             "api-reference/endpoint/clients_searchbybvn_23737828392",
             "api-reference/endpoint/loops_entries_Bvn_427",
             "api-reference/endpoint/savingsaccounts_nuban_1100074454"
+          ]
+        },
+        {
+          "group": "Agentina",
+          "pages": [
+            "api-reference/endpoint/loops_entries_Bvn_427"
+          ]
+        },
+        {
+          "group": "Europe",
+          "pages": [
+            "api-reference/endpoint/loops_entries_Bvn_427"
+          ]
+        },
+        {
+          "group": "Thialand",
+          "pages": [
+            "api-reference/endpoint/loops_entries_Bvn_427"
           ]
         }
       ]
