@@ -1,0 +1,276 @@
+---
+title: Accounting Management
+icon: cloud
+description: Comprehensive accounting management system supporting modern banking operations with automated general ledger, journal entries, and financial reporting capabilities.
+---
+
+<Note>
+The Accounting Management module is the financial backbone of the core banking system, providing robust accounting capabilities with automated processes, real-time posting, and comprehensive reporting for modern banking operations.
+</Note>
+
+## Overview
+
+The Accounting Management module provides a comprehensive framework for handling all financial accounting operations in the core banking system. From real-time transaction posting to automated financial reporting, the system ensures accurate, efficient, and compliant accounting processes.
+
+<AccordionGroup>
+  <Accordion title="General Ledger" defaultOpen={true}>
+    <Info>
+    The General Ledger is the central repository of all financial transactions, providing real-time balance tracking and automated posting capabilities.
+    </Info>
+
+    ### Core Features
+    - Real-time transaction posting
+    - Multi-currency support
+    - Automated balance updates
+    - Transaction history
+    - Balance verification
+    - Period-end processing
+    - Year-end processing
+
+    ### Chart of Accounts
+    <Tip>
+    A well-structured Chart of Accounts is crucial for accurate financial reporting and analysis.
+    </Tip>
+
+    - Account hierarchy
+    - Account types
+    - Account attributes
+    - Balance types
+    - Reporting categories
+    - Cost centers
+    - Profit centers
+
+    ```mermaid
+    flowchart TB
+        subgraph GL[General Ledger]
+            Accounts[Chart of Accounts]
+            Transactions[Transaction Posting]
+            Balances[Balance Management]
+            Reports[Financial Reports]
+        end
+
+        subgraph Processing[Processing]
+            RealTime[Real-time]
+            Batch[Batch]
+            Automated[Automated]
+            Scheduled[Scheduled]
+        end
+
+        subgraph Controls[Controls]
+            Validation[Validation]
+            Reconciliation[Reconciliation]
+            Audit[Audit]
+            Compliance[Compliance]
+        end
+
+        GL --> Processing
+        Processing --> Controls
+    ```
+  </Accordion>
+
+  <Accordion title="Journal Entries">
+    <Info>
+    Journal entries are the foundation of double-entry accounting, ensuring accurate financial records and automated posting.
+    </Info>
+
+    ### Entry Types
+    - Transaction entries
+    - Adjustment entries
+    - Reversal entries
+    - Closing entries
+    - Opening entries
+    - Correction entries
+    - Back-dated entries
+
+    ### Automated Posting
+    <Warning>
+    Automated posting rules must be carefully configured to ensure accurate financial records.
+    </Warning>
+
+    - Real-time posting
+    - Batch posting
+    - Scheduled posting
+    - Conditional posting
+    - Multi-currency posting
+    - Tax posting
+    - Fee posting
+
+    ```mermaid
+    flowchart LR
+        subgraph JournalEntry[Journal Entry]
+            Transaction[Transaction]
+            Rule[Accounting Rule]
+            Posting[Posting]
+            Validation[Validation]
+        end
+
+        subgraph Processing[Processing]
+            RealTime[Real-time]
+            Batch[Batch]
+            Scheduled[Scheduled]
+        end
+
+        subgraph GL[General Ledger]
+            Debit[Debit]
+            Credit[Credit]
+            Balance[Balance]
+        end
+
+        JournalEntry --> Processing
+        Processing --> GL
+    ```
+  </Accordion>
+
+  <Accordion title="Accounting Rules">
+    <Info>
+    Accounting rules define how transactions are processed and posted to the general ledger, ensuring consistent and accurate financial records.
+    </Info>
+
+    ### Rule Types
+    - Transaction rules
+    - Posting rules
+    - Tax rules
+    - Fee rules
+    - Interest rules
+    - Amortization rules
+    - Accrual rules
+
+    ### Rule Management
+    - Rule definition
+    - Rule validation
+    - Rule testing
+    - Rule deployment
+    - Rule monitoring
+    - Rule reporting
+    - Rule audit
+  </Accordion>
+
+  <Accordion title="Automated Processes">
+    <Info>
+    Automated accounting processes ensure efficient and accurate financial operations with minimal manual intervention.
+    </Info>
+
+    ### Amortization
+    - Loan amortization
+    - Fee amortization
+    - Cost amortization
+    - Schedule generation
+    - Interest calculation
+    - Principal calculation
+    - Balance updates
+
+    ### Accruals
+    <Tip>
+    Accrual accounting ensures that revenues and expenses are recognized in the correct accounting period.
+    </Tip>
+
+    - Interest accruals
+    - Fee accruals
+    - Tax accruals
+    - Revenue accruals
+    - Expense accruals
+    - Reversal processing
+    - Adjustment handling
+
+    ### Back Posting
+    - Historical posting
+    - Period adjustments
+    - Balance corrections
+    - Audit trail
+    - Validation checks
+    - Reporting updates
+    - Compliance checks
+
+    ```mermaid
+    flowchart TD
+        subgraph Automation[Automated Processes]
+            Amortization[Amortization]
+            Accruals[Accruals]
+            BackPosting[Back Posting]
+        end
+
+        subgraph Processing[Processing]
+            Schedule[Schedule]
+            Calculate[Calculate]
+            Post[Post]
+            Validate[Validate]
+        end
+
+        subgraph Reporting[Reporting]
+            Update[Update]
+            Report[Report]
+            Audit[Audit]
+        end
+
+        Automation --> Processing
+        Processing --> Reporting
+    ```
+  </Accordion>
+</AccordionGroup>
+
+## Financial Controls
+
+<Warning>
+Robust financial controls are essential for maintaining accurate financial records and ensuring compliance with regulatory requirements.
+</Warning>
+
+### Double-Entry Accounting
+- Debit and credit validation
+- Balance verification
+- Transaction matching
+- Error detection
+- Correction processing
+- Audit trail
+- Compliance checks
+
+### Reconciliation
+- Account reconciliation
+- Transaction matching
+- Balance verification
+- Exception handling
+- Adjustment processing
+- Reporting
+- Audit trail
+
+## Modern Banking Features
+
+<Info>
+Modern banks can leverage advanced accounting features to improve efficiency and provide better financial services.
+</Info>
+
+### Real-time Processing
+- Instant posting
+- Real-time balances
+- Live reporting
+- Immediate reconciliation
+- Automated controls
+- Instant validation
+- Real-time monitoring
+
+### Automated Reporting
+- Financial statements
+- Regulatory reports
+- Management reports
+- Tax reports
+- Compliance reports
+- Audit reports
+- Custom reports
+
+## Integration Points
+
+The Accounting Management module integrates with:
+- Transaction Processing
+- Account Management
+- Payment Systems
+- Reporting Systems
+- Regulatory Systems
+- Audit Systems
+- Compliance Systems
+
+## Next Steps
+
+Explore related modules to learn more about:
+- [Transaction Processing](/modules/core-banking/transactions)
+- [Account Management](/modules/core-banking/accounts)
+- [Reporting Systems](/modules/core-banking/reports)
+- [Compliance Management](/modules/core-banking/compliance)

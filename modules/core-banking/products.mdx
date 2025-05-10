@@ -1,0 +1,223 @@
+---
+title: Product Management
+icon: cloud
+description: Comprehensive product management system for configuring and managing banking products including loans, deposits, and fixed assets with flexible parameters and rules.
+---
+
+<Note>
+The Product Management module is the foundation for creating and managing banking products, enabling financial institutions to configure and deploy various financial products with specific rules and parameters.
+</Note>
+
+## Overview
+
+The Product Management module provides a comprehensive framework for creating and managing banking products. From loan products to deposit accounts and fixed assets, the system enables flexible product configuration with specific rules, parameters, and pricing structures.
+
+<AccordionGroup>
+  <Accordion title="Loan Products" defaultOpen={true}>
+    <Info>
+    Loan products can be configured with specific parameters, rules, and pricing structures to meet various lending needs.
+    </Info>
+
+    ### Product Parameters
+    - Loan types (Personal, Business, Mortgage)
+    - Interest rate types (Fixed, Variable, Hybrid)
+    - Repayment schedules
+    - Loan terms
+    - Collateral requirements
+    - Eligibility criteria
+    - Pricing rules
+
+    ### Loan Features
+    <Tip>
+    Loan products can be customized with specific features to meet different customer segments and business needs.
+    </Tip>
+
+    - Amortization methods
+    - Interest calculation
+    - Fee structure
+    - Early repayment rules
+    - Late payment handling
+    - Restructuring options
+    - Insurance requirements
+
+    ```mermaid
+    flowchart TB
+        subgraph LoanTypes[Loan Types]
+            Personal[Personal Loan]
+            Business[Business Loan]
+            Mortgage[Mortgage]
+            Asset[Asset Finance]
+        end
+
+        subgraph Parameters[Parameters]
+            Rate[Interest Rate]
+            Term[Loan Term]
+            Schedule[Repayment Schedule]
+            Collateral[Collateral]
+        end
+
+        subgraph Rules[Rules]
+            Eligibility[Eligibility]
+            Pricing[Pricing]
+            Processing[Processing]
+            Monitoring[Monitoring]
+        end
+
+        LoanTypes --> Parameters
+        Parameters --> Rules
+    ```
+  </Accordion>
+
+  <Accordion title="Deposit Products">
+    <Info>
+    Deposit products can be configured with specific interest rates, terms, and features to attract different customer segments.
+    </Info>
+
+    ### Product Parameters
+    - Account types (Savings, Current, Fixed)
+    - Interest rate types
+    - Minimum balance
+    - Transaction limits
+    - Withdrawal rules
+    - Interest calculation
+    - Fee structure
+
+    ### Deposit Features
+    <Warning>
+    Deposit products must comply with regulatory requirements and customer protection rules.
+    </Warning>
+
+    - Interest payment frequency
+    - Early withdrawal penalties
+    - Account maintenance
+    - Transaction limits
+    - Statement generation
+    - Online access
+    - Mobile banking
+
+    ```mermaid
+    flowchart LR
+        subgraph DepositTypes[Deposit Types]
+            Savings[Savings]
+            Current[Current]
+            Fixed[Fixed Deposit]
+            Recurring[Recurring]
+        end
+
+        subgraph Features[Features]
+            Interest[Interest]
+            Limits[Limits]
+            Access[Access]
+            Services[Services]
+        end
+
+        subgraph Rules[Rules]
+            Eligibility[Eligibility]
+            Pricing[Pricing]
+            Processing[Processing]
+            Monitoring[Monitoring]
+        end
+
+        DepositTypes --> Features
+        Features --> Rules
+    ```
+  </Accordion>
+
+  <Accordion title="Fixed Assets">
+    <Info>
+    Fixed asset products can be configured for various types of asset financing with specific terms and conditions.
+    </Info>
+
+    ### Product Parameters
+    - Asset types
+    - Financing terms
+    - Depreciation methods
+    - Insurance requirements
+    - Maintenance schedules
+    - Disposal rules
+    - Valuation methods
+
+    ### Asset Features
+    <Tip>
+    Fixed asset products can be customized based on asset type and customer requirements.
+    </Tip>
+
+    - Asset tracking
+    - Depreciation calculation
+    - Maintenance scheduling
+    - Insurance management
+    - Disposal processing
+    - Reporting
+    - Analytics
+
+    ```mermaid
+    flowchart TD
+        subgraph AssetTypes[Asset Types]
+            Equipment[Equipment]
+            Vehicles[Vehicles]
+            Property[Property]
+            Machinery[Machinery]
+        end
+
+        subgraph Management[Management]
+            Track[Tracking]
+            Depreciate[Depreciation]
+            Maintain[Maintenance]
+            Dispose[Disposal]
+        end
+
+        subgraph Reporting[Reporting]
+            Value[Valuation]
+            Report[Reports]
+            Audit[Audit]
+            Analytics[Analytics]
+        end
+
+        AssetTypes --> Management
+        Management --> Reporting
+    ```
+  </Accordion>
+</AccordionGroup>
+
+## Product Configuration
+
+<Info>
+Product configuration involves setting up specific parameters, rules, and features for each product type.
+</Info>
+
+### Configuration Elements
+- Product parameters
+- Pricing rules
+- Eligibility rules
+- Processing rules
+- Documentation requirements
+- Regulatory compliance
+- Reporting requirements
+
+### Product Lifecycle
+1. Product creation
+2. Parameter configuration
+3. Rule setup
+4. Testing and validation
+5. Product activation
+6. Monitoring and maintenance
+7. Product deactivation
+
+## Integration Points
+
+The Product Management module integrates with:
+- Account Management
+- Client Management
+- Transaction Processing
+- Risk Management
+- Reporting Systems
+- Marketing Systems
+- Compliance Systems
+
+## Next Steps
+
+Explore related modules to learn more about:
+- [Account Management](/modules/core-banking/accounts)
+- [Transaction Processing](/modules/core-banking/transactions)
+- [Charges Management](/modules/core-banking/charges)
+- [Compliance Management](/modules/core-banking/compliance)

@@ -3,9 +3,6 @@ title: Retrieve a Savings Account
 openapi: 'GET /savingsaccounts/{savingsId}'
 ---
 
-
-
-
 <Note>
 The balance on a savings account is automatically re-calculated and upated after every **30 mins** on Woodcore, when a transaction is done on an an account, the change on the balance might not impact immediately but the message has been efected, if you need to see the calculated balaned realtime you can passs `refresh` as `true`
 

@@ -1,0 +1,335 @@
+---
+title: Overview
+icon: cloud
+---
+
+Woodcore is a modern, cloud-native core banking engine designed for financial institutions of all sizes. Built with scalability, flexibility, and developer experience in mind, it provides a robust foundation for building next-generation banking solutions.
+
+<AccordionGroup>
+  <Accordion title="Architecture Overview" defaultOpen={true}>
+    ```mermaid
+    flowchart TB
+        subgraph CoreBanking[Core Banking]
+            Client[Client Management]
+            Account[Account Management]
+            Transaction[Transaction Processing]
+            Ledger[General Ledger]
+            Loan[Loan Management]
+            Deposit[Deposit Management]
+            
+            Client --> Account
+            Account --> Transaction
+            Transaction --> Ledger
+            Client --> Loan
+            Client --> Deposit
+        end
+        
+        subgraph IntegrationLayer[Integration Layer]
+            API[API Gateway]
+            Webhook[Webhook Service]
+            EventBus[Event Bus]
+            
+            API --> CoreBanking
+            Webhook --> CoreBanking
+            EventBus --> CoreBanking
+        end
+        
+        subgraph SecurityLayer[Security]
+            Auth[Authentication]
+            RBAC[Role-Based Access]
+            Audit[Audit Logging]
+            
+            Auth --> API
+            RBAC --> API
+            Audit --> CoreBanking
+        end
+        
+        External[External Systems] --> IntegrationLayer
+    ```
+
+    #### The Woodcore engine is built on a microservices architecture, enabling:
+    - Independent scaling of components
+    - Technology stack flexibility
+    - Easy integration with existing systems
+    - High availability and fault tolerance
+  </Accordion>
+
+  <Accordion title="Core Features">
+    <AccordionGroup>
+      <Accordion title="Multi-Tenancy" defaultOpen={true}>
+        <Tip>
+        Multi-tenancy is a key feature that allows you to serve multiple financial institutions from a single deployment while maintaining complete data isolation.
+        </Tip>
+
+        ```mermaid
+        flowchart LR
+            subgraph Infrastructure
+                K8s[Kubernetes Cluster]
+                Tenant1[Tenant 1]
+                Tenant2[Tenant 2]
+                Tenant3[Tenant 3]
+                
+                K8s --> Tenant1
+                K8s --> Tenant2
+                K8s --> Tenant3
+            end
+            
+            subgraph DataLayer[Data Layer]
+                DB1[(Database 1)]
+                DB2[(Database 2)]
+                DB3[(Database 3)]
+                
+                DB1 --> Tenant1
+                DB2 --> Tenant2
+                DB3 --> Tenant3
+            end
+            
+            subgraph SharedServices[Shared Services]
+                Auth[Auth Service]
+                Config[Config Service]
+                
+                Auth --> Tenant1
+                Auth --> Tenant2
+                Auth --> Tenant3
+                Config --> Tenant1
+                Config --> Tenant2
+                Config --> Tenant3
+            end
+        ```
+
+        - Isolated tenant environments
+        - Customizable configurations per tenant
+        - Shared infrastructure with data isolation
+        - Tenant-specific branding and workflows
+      </Accordion>
+
+      <Accordion title="Cloud-Native Design">
+        <Info>
+        Our cloud-native architecture ensures you can deploy Woodcore on any cloud provider or on-premises environment with minimal configuration changes.
+        </Info>
+
+        - Containerized deployment
+        - Kubernetes orchestration
+        - Auto-scaling capabilities
+        - Infrastructure as Code support
+      </Accordion>
+
+      <Accordion title="Developer Experience">
+        <Check>
+        Woodcore provides comprehensive developer tools and documentation to accelerate your integration process.
+        </Check>
+
+        - RESTful APIs with OpenAPI/Swagger documentation
+        - Webhook support for real-time events
+        - Comprehensive SDKs and client libraries
+        - Extensive logging and monitoring
+      </Accordion>
+
+      <Accordion title="Core Banking Capabilities">
+        ```mermaid
+        flowchart TB
+            subgraph BankingCore[Banking Core]
+                Account[Account Management]
+                Transaction[Transaction Processing]
+                Ledger[General Ledger]
+                Loan[Loan Management]
+                Deposit[Deposit Management]
+                
+                Account --> Transaction
+                Transaction --> Ledger
+                Loan --> Transaction
+                Deposit --> Transaction
+            end
+            
+            subgraph Features
+                MultiCurr[Multi-Currency]
+                RealTime[Real-time Processing]
+                Audit[Audit Trail]
+                Validation[Validation Rules]
+                
+                MultiCurr --> Transaction
+                RealTime --> Transaction
+                Audit --> Transaction
+                Validation --> Transaction
+            end
+        ```
+
+        - Account Management
+          - Multiple account types
+          - Custom account hierarchies
+          - Flexible account rules
+          - Real-time balance tracking
+
+        - Transaction Processing
+          - Real-time transaction processing
+          - Multi-currency support
+          - Transaction validation rules
+          - Audit trail and reconciliation
+
+        - Loan Management
+          - Flexible loan products
+          - Automated disbursement
+          - Repayment scheduling
+          - Collateral management
+
+        - Deposit Management
+          - Fixed and recurring deposits
+          - Interest calculation
+          - Maturity processing
+          - Early withdrawal handling
+      </Accordion>
+    </AccordionGroup>
+  </Accordion>
+
+  <Accordion title="Deployment Options">
+    <AccordionGroup>
+      <Accordion title="Cloud Deployment">
+        <Warning>
+        Ensure you have the necessary cloud provider credentials and permissions before starting the deployment process.
+        </Warning>
+
+        ```mermaid
+        flowchart TB
+            subgraph CloudProviders[Cloud Providers]
+                AWS[AWS]
+                Azure[Azure]
+                GCP[GCP]
+                K8s[Kubernetes]
+                
+                AWS --> K8s
+                Azure --> K8s
+                GCP --> K8s
+            end
+            
+            subgraph Infrastructure
+                Services[Core Services]
+                DB[(Database)]
+                Cache[(Cache)]
+                Queue[(Message Queue)]
+                
+                K8s --> Services
+                Services --> DB
+                Services --> Cache
+                Services --> Queue
+            end
+            
+            subgraph Monitoring
+                Prometheus[Prometheus]
+                Grafana[Grafana]
+                Logs[Log Aggregation]
+                
+                Prometheus --> Services
+                Grafana --> Services
+                Logs --> Services
+            end
+        ```
+
+        - AWS, Azure, GCP support
+        - Hybrid cloud capabilities
+        - Multi-region deployment
+        - Auto-scaling infrastructure
+      </Accordion>
+
+      <Accordion title="On-Premises Deployment">
+        <Tip>
+        On-premises deployment is ideal for financial institutions with strict data residency requirements or regulatory compliance needs.
+        </Tip>
+
+        - Private cloud deployment
+        - Data center hosting
+        - Air-gapped environments
+        - Custom infrastructure support
+      </Accordion>
+    </AccordionGroup>
+  </Accordion>
+
+  <Accordion title="Integration Capabilities">
+    <AccordionGroup>
+      <Accordion title="API Integration">
+        <Info>
+        Our API-first approach ensures seamless integration with your existing systems and third-party services.
+        </Info>
+
+        - RESTful APIs
+        - GraphQL support
+        - WebSocket connections
+        - Batch processing APIs
+      </Accordion>
+
+      <Accordion title="Third-Party Systems">
+        - Payment gateways
+        - KYC/AML providers
+        - Credit bureaus
+        - Mobile banking platforms
+      </Accordion>
+    </AccordionGroup>
+  </Accordion>
+
+  <Accordion title="Security & Compliance">
+    <AccordionGroup>
+      <Accordion title="Security Features">
+        <Warning>
+        Security is our top priority. All deployments include comprehensive security measures and regular security audits.
+        </Warning>
+
+        - End-to-end encryption
+        - Role-based access control
+        - Audit logging
+        - Fraud detection
+      </Accordion>
+
+      <Accordion title="Compliance">
+        - GDPR compliance
+        - PCI DSS support
+        - Regional banking regulations
+        - Data residency options
+      </Accordion>
+    </AccordionGroup>
+  </Accordion>
+
+  <Accordion title="Getting Started">
+    <AccordionGroup>
+      <Accordion title="Prerequisites">
+        <Note>
+        Make sure you have all the prerequisites installed and configured before starting the deployment process.
+        </Note>
+
+        - Docker and Kubernetes knowledge
+        - Basic understanding of banking operations
+        - API integration experience
+        - Cloud platform familiarity
+      </Accordion>
+
+      <Accordion title="Quick Start">
+        1. Set up your development environment
+        2. Deploy the core services
+        3. Configure your tenant
+        4. Start integrating with APIs
+      </Accordion>
+
+      <Accordion title="Documentation">
+        - API Reference
+        - Integration Guides
+        - Deployment Guides
+        - Security Guidelines
+      </Accordion>
+    </AccordionGroup>
+  </Accordion>
+
+  <Accordion title="Support & Resources">
+    - Technical Documentation
+    - API Reference
+    - Integration Guides
+    - Community Forums
+    - Support Portal
+  </Accordion>
+</AccordionGroup>
+
+## Next Steps
+
+Explore the following sections to learn more about specific components:
+- [Client Management](/modules/core-banking/clients)
+- [Account Management](/modules/core-banking/accounts)
+- [Transaction Processing](/modules/core-banking/transactions)
+- [Loan Management](/modules/core-banking/loans)
+- [Deposit Management](/modules/core-banking/deposits)

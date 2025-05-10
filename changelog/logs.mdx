@@ -16,10 +16,9 @@ Deposit account balance will not longer be calculted real-time on the system, wh
 - Balance will get updated after **30 mins**
 - Pass `refresh` as `true` to the `/savingsaccounts/{savingsId}` endpoint as a query param. see example below
 
-```curl 
+```curl
 curl -X GET "https://base.com/savingsaccounts/{savingsId}?refresh=true" -H "Accept: application/json"
 ```
 <Note>
   If `refresh` is not set as `true` the current balance as is will be returned
 </Note>
-

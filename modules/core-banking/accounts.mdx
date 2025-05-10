@@ -1,0 +1,299 @@
+---
+title: Account Management
+icon: cloud
+description: Comprehensive account management system supporting various account types including digital wallets, savings, loans, and fixed deposits with flexible configuration options for fintechs.
+---
+
+<Note>
+The Account Management module is the primary account type system in Woodcore, providing a flexible framework for managing various account types and enabling fintechs to build sophisticated wallet systems for their end users.
+</Note>
+
+<AccordionGroup>
+  <Accordion title="Account Overview" defaultOpen={true}>
+    ```mermaid
+    flowchart TB
+        subgraph AccountTypes[Account Types]
+            Wallet[Digital Wallet]
+            Savings[Savings Account]
+            Current[Current Account]
+            Loan[Loan Account]
+            Fixed[Fixed Deposit]
+            Recurring[Recurring Deposit]
+        end
+
+        subgraph Features[Core Features]
+            Balance[Balance Management]
+            Interest[Interest Calculation]
+            Limits[Transaction Limits]
+            Security[Security Controls]
+        end
+
+        subgraph WalletFeatures[Wallet Features]
+            P2P[P2P Transfers]
+            QR[QR Payments]
+            BillPay[Bill Payments]
+            TopUp[Top-up Services]
+        end
+
+        AccountTypes --> Features
+        Wallet --> WalletFeatures
+    ```
+
+    <Tip>
+    The Account Management system is designed to be the foundation for fintech wallet systems, providing all necessary features for modern digital banking.
+    </Tip>
+  </Accordion>
+
+  <Accordion title="Account Types">
+    <AccordionGroup>
+      <Accordion title="Digital Wallets" defaultOpen={true}>
+        <Info>
+        Digital wallets are the primary account type for fintech applications, providing a flexible foundation for various financial services.
+        </Info>
+
+        ```mermaid
+        flowchart LR
+            subgraph WalletCore[Wallet Core]
+                Balance[Balance Management]
+                Transactions[Transaction Processing]
+                Security[Security Controls]
+            end
+
+            subgraph WalletServices[Wallet Services]
+                P2P[P2P Transfers]
+                QR[QR Payments]
+                BillPay[Bill Payments]
+                TopUp[Top-up Services]
+            end
+
+            subgraph Integration[Integration Points]
+                Payment[Payment Gateways]
+                Banking[Banking Systems]
+                Mobile[Mobile Apps]
+            end
+
+            WalletCore --> WalletServices
+            WalletServices --> Integration
+        ```
+
+        - Real-time balance tracking
+        - Instant P2P transfers
+        - QR code payments
+        - Bill payments
+        - Mobile top-up
+        - Merchant payments
+        - Cash-in/Cash-out
+        - Transaction history
+      </Accordion>
+
+      <Accordion title="Savings Accounts">
+        <Info>
+        Savings accounts provide interest-earning capabilities with various features for different customer needs.
+        </Info>
+
+        - Regular savings
+        - High-yield savings
+        - Goal-based savings
+        - Children's savings
+        - Interest calculation
+        - Withdrawal limits
+        - Minimum balance requirements
+      </Accordion>
+
+      <Accordion title="Current Accounts">
+        <Info>
+        Current accounts are designed for frequent transactions and business operations.
+        </Info>
+
+        - Business accounts
+        - Personal accounts
+        - Zero balance accounts
+        - Premium accounts
+        - Transaction limits
+        - Overdraft facilities
+        - Check book facilities
+      </Accordion>
+
+      <Accordion title="Fixed Deposits">
+        <Info>
+        Fixed deposits offer higher interest rates for funds locked for specific periods.
+        </Info>
+
+        - Term deposits
+        - Flexible deposits
+        - Senior citizen deposits
+        - Corporate deposits
+        - Interest rate options
+        - Premature withdrawal
+        - Auto-renewal
+      </Accordion>
+
+      <Accordion title="Recurring Deposits">
+        <Info>
+        Recurring deposits allow customers to save regularly with fixed installments.
+        </Info>
+
+        - Regular savings plan
+        - Flexible installments
+        - Interest calculation
+        - Maturity options
+        - Early withdrawal
+        - Auto-debit
+      </Accordion>
+
+      <Accordion title="Loan Accounts">
+        <Info>
+        Loan accounts manage various types of credit facilities for customers.
+        </Info>
+
+        - Personal loans
+        - Business loans
+        - Mortgage loans
+        - Auto loans
+        - Education loans
+        - EMI management
+        - Interest calculation
+      </Accordion>
+    </AccordionGroup>
+  </Accordion>
+
+  <Accordion title="Account Operations">
+    <AccordionGroup>
+      <Accordion title="Transaction Types">
+        ```mermaid
+        flowchart TD
+            subgraph Transactions[Transaction Types]
+                Deposit[Deposits]
+                Withdrawal[Withdrawals]
+                Transfer[Transfers]
+                Payment[Payments]
+            end
+
+            subgraph Methods[Transaction Methods]
+                Cash[Cash]
+                Card[Card]
+                Mobile[Mobile]
+                Online[Online]
+            end
+
+            subgraph Channels[Channels]
+                Branch[Branch]
+                ATM[ATM]
+                Mobile[Mobile App]
+                Internet[Internet Banking]
+            end
+
+            Transactions --> Methods
+            Methods --> Channels
+        ```
+
+        <Warning>
+        All transactions are subject to account limits and security controls.
+        </Warning>
+      </Accordion>
+
+      <Accordion title="Balance Management">
+        - Real-time balance updates
+        - Available balance calculation
+        - Ledger balance tracking
+        - Balance alerts
+        - Minimum balance monitoring
+      </Accordion>
+
+      <Accordion title="Interest Management">
+        - Interest calculation
+        - Interest posting
+        - Interest rate management
+        - Interest tax handling
+        - Interest statements
+      </Accordion>
+    </AccordionGroup>
+  </Accordion>
+
+  <Accordion title="Security & Controls">
+    <AccordionGroup>
+      <Accordion title="Access Controls">
+        - Multi-factor authentication
+        - Role-based access
+        - Transaction limits
+        - IP restrictions
+        - Device management
+      </Accordion>
+
+      <Accordion title="Fraud Prevention">
+        - Transaction monitoring
+        - Suspicious activity detection
+        - Risk scoring
+        - Account freezing
+        - Fraud alerts
+      </Accordion>
+
+      <Accordion title="Compliance">
+        - KYC verification
+        - Transaction limits
+        - Reporting requirements
+        - Audit trails
+        - Regulatory compliance
+      </Accordion>
+    </AccordionGroup>
+  </Accordion>
+
+  <Accordion title="Fintech Integration">
+    ```mermaid
+    flowchart LR
+        subgraph FintechApp[Fintech Application]
+            Wallet[Wallet System]
+            Payments[Payment Services]
+            Services[Value Services]
+        end
+
+        subgraph CoreBanking[Core Banking]
+            Accounts[Account Management]
+            Transactions[Transaction Processing]
+            Security[Security System]
+        end
+
+        subgraph External[External Systems]
+            Payment[Payment Gateways]
+            Banking[Banking Systems]
+            Mobile[Mobile Apps]
+        end
+
+        FintechApp --> CoreBanking
+        CoreBanking --> External
+    ```
+
+    <AccordionGroup>
+      <Accordion title="API Integration">
+        - RESTful APIs
+        - WebSocket support
+        - Batch processing
+        - Real-time updates
+      </Accordion>
+
+      <Accordion title="Wallet Features">
+        - P2P transfers
+        - QR payments
+        - Bill payments
+        - Merchant payments
+        - Cash management
+      </Accordion>
+
+      <Accordion title="Value Services">
+        - Mobile top-up
+        - Utility payments
+        - Insurance products
+        - Investment products
+        - Loyalty programs
+      </Accordion>
+    </AccordionGroup>
+  </Accordion>
+</AccordionGroup>
+
+## Next Steps
+
+Explore related modules to learn more about:
+- [Transaction Processing](/modules/core-banking/transactions)
+- [Client Management](/modules/core-banking/clients)
+- [Payment Systems](/modules/core-banking/payments)
+- [Security & Compliance](/modules/core-banking/security)

@@ -1,0 +1,244 @@
+---
+title: Charges Management
+icon: cloud
+description: Comprehensive charges management system handling all banking charges, including taxes, fees, and commissions for loans, deposits, and transactions.
+---
+
+<Note>
+The Charges Management module is a critical component of the core banking system, handling all types of charges, fees, and taxes with automated calculation, application, and reporting capabilities.
+</Note>
+
+## Overview
+
+The Charges Management module provides a comprehensive framework for managing all types of banking charges, from tax calculations to transaction fees. The system ensures accurate charge application, automated calculations, and proper accounting treatment.
+
+<AccordionGroup>
+  <Accordion title="Tax Charges" defaultOpen={true}>
+    <Info>
+    Tax charges include various types of taxes and withholdings that must be accurately calculated and reported.
+    </Info>
+
+    ### Tax Types
+    - Value Added Tax (VAT)
+    - Withholding Tax (WHT)
+    - Income Tax
+    - Stamp Duty
+    - Transaction Tax
+    - Service Tax
+    - Regulatory Tax
+
+    ### Tax Features
+    <Warning>
+    Tax calculations must comply with local regulations and reporting requirements.
+    </Warning>
+
+    - Tax rate management
+    - Tax calculation rules
+    - Tax reporting
+    - Tax reconciliation
+    - Tax adjustments
+    - Tax exemptions
+    - Tax refunds
+
+    ```mermaid
+    flowchart TB
+        subgraph TaxTypes[Tax Types]
+            VAT[VAT]
+            WHT[WHT]
+            IncomeTax[Income Tax]
+            StampDuty[Stamp Duty]
+        end
+
+        subgraph Processing[Processing]
+            Calculate[Calculate]
+            Apply[Apply]
+            Report[Report]
+            Reconcile[Reconcile]
+        end
+
+        subgraph Compliance[Compliance]
+            Rules[Rules]
+            Validation[Validation]
+            Audit[Audit]
+            Reporting[Reporting]
+        end
+
+        TaxTypes --> Processing
+        Processing --> Compliance
+    ```
+  </Accordion>
+
+  <Accordion title="Loan Charges">
+    <Info>
+    Loan charges include various fees and costs associated with loan products and services.
+    </Info>
+
+    ### Charge Types
+    - Processing fees
+    - Late payment fees
+    - Prepayment charges
+    - Commitment fees
+    - Documentation fees
+    - Insurance fees
+    - Service charges
+
+    ### Charge Features
+    <Tip>
+    Loan charges can be configured based on loan type, amount, and customer segment.
+    </Tip>
+
+    - Charge calculation
+    - Charge application
+    - Charge waivers
+    - Charge reversals
+    - Charge reporting
+    - Charge history
+    - Charge analytics
+
+    ```mermaid
+    flowchart LR
+        subgraph LoanCharges[Loan Charges]
+            Processing[Processing Fee]
+            Late[Late Payment]
+            Prepayment[Prepayment]
+            Service[Service Charge]
+        end
+
+        subgraph Calculation[Calculation]
+            Rules[Rules]
+            Amount[Amount]
+            Schedule[Schedule]
+            Apply[Apply]
+        end
+
+        subgraph Accounting[Accounting]
+            Post[Post]
+            Report[Report]
+            Reconcile[Reconcile]
+        end
+
+        LoanCharges --> Calculation
+        Calculation --> Accounting
+    ```
+  </Accordion>
+
+  <Accordion title="Deposit Charges">
+    <Info>
+    Deposit charges include fees associated with deposit accounts and transactions.
+    </Info>
+
+    ### Charge Types
+    - Account maintenance fees
+    - Transaction fees
+    - Withdrawal charges
+    - Statement fees
+    - Card charges
+    - Service fees
+    - Penalty charges
+
+    ### Charge Features
+    - Fee calculation
+    - Fee application
+    - Fee waivers
+    - Fee reversals
+    - Fee reporting
+    - Fee history
+    - Fee analytics
+  </Accordion>
+
+  <Accordion title="Transaction Charges">
+    <Info>
+    Transaction charges include fees for various banking transactions and services.
+    </Info>
+
+    ### Charge Types
+    - Transfer fees
+    - Card transaction fees
+    - ATM fees
+    - Check processing fees
+    - Cash handling fees
+    - Foreign exchange fees
+    - Service charges
+
+    ### Charge Features
+    <Warning>
+    Transaction charges must be clearly communicated to customers and properly accounted for.
+    </Warning>
+
+    - Fee calculation
+    - Fee application
+    - Fee waivers
+    - Fee reversals
+    - Fee reporting
+    - Fee history
+    - Fee analytics
+
+    ```mermaid
+    flowchart TD
+        subgraph TransactionCharges[Transaction Charges]
+            Transfer[Transfer Fee]
+            Card[Card Fee]
+            ATM[ATM Fee]
+            Cash[Cash Fee]
+        end
+
+        subgraph Processing[Processing]
+            Calculate[Calculate]
+            Apply[Apply]
+            Report[Report]
+        end
+
+        subgraph Accounting[Accounting]
+            Post[Post]
+            Reconcile[Reconcile]
+            Audit[Audit]
+        end
+
+        TransactionCharges --> Processing
+        Processing --> Accounting
+    ```
+  </Accordion>
+</AccordionGroup>
+
+## Charge Processing
+
+<Info>
+Charge processing involves multiple steps to ensure accurate calculation, application, and accounting of charges.
+</Info>
+
+### Processing Steps
+1. Charge identification
+2. Rule application
+3. Fee calculation
+4. Charge posting
+5. Customer notification
+6. Collection processing
+7. Reconciliation
+
+### Charge Management
+- Charge configuration
+- Rate management
+- Rule management
+- Waiver management
+- Reversal processing
+- Reporting
+- Analytics
+
+## Integration Points
+
+The Charges Management module integrates with:
+- Account Management
+- Transaction Processing
+- Client Management
+- Tax Systems
+- Reporting Systems
+- Billing Systems
+- Compliance Systems
+
+## Next Steps
+
+Explore related modules to learn more about:
+- [Account Management](/modules/core-banking/accounts)
+- [Transaction Processing](/modules/core-banking/transactions)
+- [Product Management](/modules/core-banking/products)
+- [Compliance Management](/modules/core-banking/compliance)

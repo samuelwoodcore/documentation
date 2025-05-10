@@ -1,0 +1,10 @@
+{
+    "integrations": {
+        "ga4": {
+            "measurementId": "G-9CTCNH4H4E"
+        },
+        "gtm": {
+            "tagId": "GTM-KFCBGL3"
+        }
+    }
+}

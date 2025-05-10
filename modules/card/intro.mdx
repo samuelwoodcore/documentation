@@ -1,0 +1,146 @@
+---
+title: Card Management
+icon: cloud
+---
+
+The Card Services module provides comprehensive card management capabilities for financial institutions, supporting various card types and payment networks. This module enables end-to-end card lifecycle management from issuance to transaction processing.
+
+> 💡 **Modern Card Management**
+> 
+> Woodcore's Card Services module delivers a complete card management solution that supports multiple card types, payment networks, and processing capabilities while ensuring security and compliance. The platform enables rapid deployment of card programs with full ISO 8583 protocol support and comprehensive dispute management.
+
+## Core Capabilities
+
+| Capability | Description | Features |
+|------------|-------------|----------|
+| **Card Issuance** | End-to-end card issuance process | • Card product management<br/>• Card personalization<br/>• Card production<br/>• Card delivery<br/>• Card activation |
+| **Transaction Processing** | Comprehensive transaction handling | • Authorization processing<br/>• Clearing and settlement<br/>• Transaction routing<br/>• Fee calculation<br/>• Dispute management |
+| **Card Management** | Ongoing card lifecycle management | • PIN management<br/>• Card blocking/unblocking<br/>• Card replacement<br/>• Card renewal<br/>• Card limits management |
+| **Security Management** | Advanced security features | • Fraud detection<br/>• Risk scoring<br/>• Transaction monitoring<br/>• Security alerts<br/>• Compliance checks |
+
+## Card Issuance Process Flow
+
+```mermaid
+graph TD
+    A[Customer Application] --> B[KYC Verification]
+    B --> C[Risk Assessment]
+    C --> D[Card Product Selection]
+    D --> E[Card Production]
+    E --> F[Card Personalization]
+    F --> G[Card Delivery]
+    G --> H[Card Activation]
+    H --> I[PIN Generation]
+    
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style I fill:#9f9,stroke:#333,stroke-width:2px
+```
+
+## Transaction Processing Flow
+
+```mermaid
+graph TD
+    A[Transaction Initiation] --> B[ISO 8583 Message]
+    B --> C[Authorization Request]
+    C --> D[Risk Check]
+    D --> E[Balance Check]
+    E --> F[Authorization Response]
+    F --> G[Transaction Completion]
+    G --> H[Clearing]
+    H --> I[Settlement]
+    
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style I fill:#9f9,stroke:#333,stroke-width:2px
+```
+
+## ISO 8583 Protocol Support
+
+| Protocol Feature | Description | Implementation |
+|-----------------|-------------|----------------|
+| **Message Types** | Standard message formats | • Authorization (0100/0110)<br/>• Financial (0200/0210)<br/>• Reversal (0400/0410)<br/>• Network Management (0800/0810) |
+| **Data Elements** | Message field definitions | • Primary Account Number<br/>• Processing Code<br/>• Transaction Amount<br/>• Transmission Date/Time<br/>• Merchant Data |
+| **Network Support** | Payment network integration | • Visa<br/>• Mastercard<br/>• UnionPay<br/>• Local Networks<br/>• Custom Networks |
+
+> 🔄 **Transaction Processing**
+> 
+> Woodcore's card processing capabilities include:
+> - Full ISO 8583 protocol implementation
+> - Real-time authorization processing
+> - Multi-currency support
+> - Dynamic routing capabilities
+> - Comprehensive fee management
+> - Automated clearing and settlement
+> - Real-time transaction monitoring
+> - Advanced fraud detection
+
+## Dispute Management
+
+| Process Stage | Description | Features |
+|---------------|-------------|----------|
+| **Chargeback Initiation** | Dispute processing start | • Dispute reason codes<br/>• Documentation collection<br/>• Timeline tracking<br/>• Status monitoring<br/>• Communication management |
+| **Representment** | Merchant response handling | • Evidence collection<br/>• Response preparation<br/>• Timeline management<br/>• Status tracking<br/>• Communication handling |
+| **Arbitration** | Final dispute resolution | • Case review<br/>• Decision management<br/>• Settlement processing<br/>• Communication handling<br/>• Compliance checks |
+
+> ⚠️ **Dispute Resolution**
+> 
+> The dispute management system provides:
+> - Automated chargeback processing
+> - Comprehensive reason code support
+> - Timeline management
+> - Document handling
+> - Status tracking
+> - Communication management
+> - Settlement processing
+> - Compliance monitoring
+
+## Key Features
+
+| Feature Category | Description | Components |
+|-----------------|-------------|------------|
+| **Card Product Management** | Product configuration and setup | • Product configuration<br/>• Fee structure setup<br/>• Card type management<br/>• Network configuration<br/>• Product versioning |
+| **Card Issuance** | Digital and physical card handling | • Digital card issuance<br/>• Physical card production<br/>• Card personalization<br/>• Card delivery tracking<br/>• Card activation |
+| **Transaction Processing** | Comprehensive transaction handling | • Real-time authorization<br/>• Clearing and settlement<br/>• Transaction routing<br/>• Fee calculation<br/>• Dispute handling |
+| **Card Management** | Ongoing card operations | • PIN management<br/>• Card blocking/unblocking<br/>• Card replacement<br/>• Card renewal<br/>• Limits management |
+
+## Integration Points
+
+```mermaid
+graph TD
+    A[Card Services] --> B[Core Banking]
+    A --> C[Payment Networks]
+    A --> D[Digital Services]
+    A --> E[Security Systems]
+    A --> F[Reporting Systems]
+    
+    style A fill:#f9f,stroke:#333,stroke-width:4px
+```
+
+> ℹ️ **System Integration**
+> 
+> The Card Services module integrates with:
+> - Core Banking System for account management
+> - Payment Networks for transaction processing
+> - Digital Services for mobile/online access
+> - Security Systems for fraud prevention
+> - Reporting Systems for analytics
+> - ISO 8583 Gateways for network communication
+> - Dispute Management Systems
+> - Compliance Monitoring Systems
+
+## Security and Compliance
+
+| Aspect | Features | Capabilities |
+|--------|----------|--------------|
+| **Security Features** | Card security measures | • EMV compliance<br/>• PCI DSS compliance<br/>• Tokenization<br/>• Encryption<br/>• Fraud prevention |
+| **Compliance Features** | Regulatory compliance | • Regulatory reporting<br/>• Transaction monitoring<br/>• Audit logging<br/>• Compliance checks<br/>• Risk management |
+
+> ⚠️ **Important Note**
+> 
+> Before processing live card transactions, ensure:
+> - PCI DSS compliance certification
+> - EMV compliance implementation
+> - Network certification completion
+> - Security measures configuration
+> - Compliance monitoring setup
+> - Dispute management procedures
+> - Settlement processes
+> - Risk management controls

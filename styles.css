@@ -1,25 +1,28 @@
 /* Adjust body font size */
 body {
-    font-size: 12px;
-    background-color: #242e34; /* Dark mode body background */
-    color: #f2f2f2; /* Light text color for readability */
-  }
-  
-  /* Adjust headings */
-  h1 {
+    font-size: 17px;
+    background-color: #242e34;
+    /* Dark mode body background */
+    color: #f2f2f2;
+    /* Light text color for readability */
+}
+
+/* Adjust headings */
+h1 {
     font-size: 21px;
-  }
-  
-  h2 {
+}
+
+h2 {
     font-size: 20px;
-  }
-  
-  p {
+}
+
+p {
+    font-size: 15px;
+}
+
+li {
     font-size: 14px;
-  }
-  li {
-    font-size: 13px;
-  }
+}
 
 .api-container {
     display: flex;
@@ -29,10 +32,13 @@ body {
 }
 
 .api-card {
-    background: #2d3942; /* Dark mode card background */
-    border: 1px solid #3f4954; /* Darker border for contrast */
+    background: #2d3942;
+    /* Dark mode card background */
+    border: 1px solid #3f4954;
+    /* Darker border for contrast */
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Shadow effect without glow */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    /* Shadow effect without glow */
     width: 220px;
     padding: 20px;
     text-align: left;
@@ -42,12 +48,14 @@ body {
 
 .api-card h3 {
     margin-top: 0;
-    color: #cccccc; /* Lighter color for headings */
+    color: #cccccc;
+    /* Lighter color for headings */
     font-size: 15px;
 }
 
 .api-card p {
-    color: #e1e1e1; /* Lighter text color for readability */
+    color: #e1e1e1;
+    /* Lighter text color for readability */
     font-size: 10px;
     margin-bottom: 20px;
 }
@@ -60,7 +68,8 @@ body {
     height: auto;
 }
 
-.api-link, .api-link-blue {
+.api-link,
+.api-link-blue {
     display: inline-block;
     text-decoration: none;
     font-weight: bold;
@@ -70,31 +79,39 @@ body {
 }
 
 .api-link {
-    color: #e84ce4; /* Purple text color */
-    border: 1px solid #e84ce4; /* Purple border */
+    color: #e84ce4;
+    /* Purple text color */
+    border: 1px solid #e84ce4;
+    /* Purple border */
 }
 
 .api-link:hover {
     background-color: #e84ce4;
-    color: #ffffff; /* White text on hover */
+    color: #ffffff;
+    /* White text on hover */
 }
 
 .api-card:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 0 15px #e84ce4; /* Stronger purple glow on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 0 15px #e84ce4;
+    /* Stronger purple glow on hover */
 }
 
 .blue-glow:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 0 15px #007bff; /* Stronger blue glow on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 0 15px #007bff;
+    /* Stronger blue glow on hover */
 }
 
 .api-link-blue {
-    color: #007bff; /* Blue text color */
-    border: 1px solid #007bff; /* Blue border */
+    color: #007bff;
+    /* Blue text color */
+    border: 1px solid #007bff;
+    /* Blue border */
 }
 
 .api-link-blue:hover {
     background-color: #007bff;
-    color: #ffffff; /* White text on hover */
+    color: #ffffff;
+    /* White text on hover */
 }
 
 .section {

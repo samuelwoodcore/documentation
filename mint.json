@@ -9,7 +9,7 @@
   "feedback": {
     "thumbsRating": true
   },
-  "theme": "venus",
+  "theme": "prism",
   "sidebar": {},
   "metadata": {
     "og:image": "https://res.cloudinary.com/dko7n7x16/image/upload/v1735379313/wcfavicon_oxpolv.svg",
@@ -36,7 +36,7 @@
   },
   "modeToggle": {
     "default": "light",
-    "isHidden": true
+    "strict": false
   },
   "topbarLinks": [
     {
@@ -56,27 +56,18 @@
     {
       "name": "API Reference ᴬᴾᴵ",
       "url": "api-reference"
-    },
-    {
-      "name": "Changelog",
-      "url": "changelog"
     }
   ],
   "anchors": [
     {
-      "name": "Community",
-      "icon": "slack",
-      "url": "#"
+      "name": "Blog & Insights",
+      "icon": "blog",
+      "url": "https://blog.woodcore.co"
     },
     {
-      "name": "API Status",
-      "icon": "signal",
-      "url": "https://status.woodcore.co"
-    },
-    {
-      "name": "Demo",
+      "name": "Request Demo",
       "icon": "window",
-      "url": "https://woodcore.co/contact"
+      "url": "https://woodcore.co/book-demo"
     }
   ],
   "navigation": [
@@ -92,16 +83,24 @@
       ]
     },
     {
-      "group": "Standard Use Cases",
+      "group": "Modules & Services",
       "pages": [
-        "usecase/baas",
-        "usecase/digitalbank",
-        "usecase/bnpl",
-        "usecase/lms",
-        "usecase/asset",
-        "usecase/gateway",
-        "usecase/payments",
-        "usecase/card"
+        "modules/core-banking/intro",
+        "modules/core-banking/clients",
+        "modules/core-banking/loans",
+        "modules/core-banking/transactions",
+        "modules/core-banking/charges",
+        "modules/digital-services/intro",
+        "modules/digital-services/accounts",
+        "modules/digital-services/transactions",
+        "modules/digital-services/loans",
+        "modules/core-banking/accounts",
+        "modules/core-banking/accounting",
+        "modules/digital-services/deposits",
+        "modules/digital-services/payments",
+        "modules/orchestrator/intro",
+        "modules/core-banking/products",
+        "modules/card/intro"
       ]
     },
     {

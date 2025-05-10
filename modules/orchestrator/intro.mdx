@@ -1,0 +1,122 @@
+---
+title: Orchestrator
+icon: cloud
+---
+
+
+The Orchestrator module serves as the central nervous system of Woodcore's banking platform, managing and coordinating complex workflows across different modules and systems. It ensures seamless integration and communication between various banking services while maintaining high performance and reliability.
+
+> 💡 **System Orchestration**
+> 
+> The Orchestrator module is the backbone of Woodcore's microservices architecture, enabling efficient service coordination and workflow management across the entire banking platform. It provides a robust service bus layer that allows for flexible integration and extension of banking capabilities.
+
+## Core Capabilities
+
+| Capability | Description | Features |
+|------------|-------------|----------|
+| **Workflow Management** | Process orchestration and coordination | • Process orchestration<br/>• Service coordination<br/>• Task scheduling<br/>• Workflow monitoring<br/>• Error handling |
+| **Integration Management** | Service integration and communication | • Service discovery<br/>• API management<br/>• Protocol translation<br/>• Message routing<br/>• Load balancing |
+| **Event Management** | Event-driven architecture support | • Event processing<br/>• Event routing<br/>• Event persistence<br/>• Event monitoring<br/>• Event recovery |
+| **System Monitoring** | Comprehensive system oversight | • Performance monitoring<br/>• Health checks<br/>• Resource utilization<br/>• Alert management<br/>• Logging and tracing |
+
+## Service Bus Architecture
+
+```mermaid
+graph TD
+    A[Orchestrator] --> B[Digital Services]
+    A --> C[Lending]
+    A --> D[Card Services]
+    A --> E[Core Banking]
+    A --> F[External Systems]
+    
+    B --> G[Service Bus]
+    C --> G
+    D --> G
+    E --> G
+    F --> G
+    
+    style A fill:#f9f,stroke:#333,stroke-width:4px
+    style G fill:#9f9,stroke:#333,stroke-width:2px
+```
+
+> 🔄 **Service Bus Layer**
+> 
+> Woodcore's service bus layer provides a powerful foundation for building and extending banking capabilities:
+> - Message-based communication between services
+> - Event-driven architecture support
+> - Protocol-agnostic service integration
+> - Real-time data streaming capabilities
+> - Asynchronous processing support
+> - Service discovery and registration
+> - Dynamic routing and load balancing
+> - Message transformation and enrichment
+
+## Key Features
+
+| Feature Category | Description | Components |
+|-----------------|-------------|------------|
+| **Service Orchestration** | Microservices coordination | • Microservices coordination<br/>• Service discovery<br/>• Load balancing<br/>• Circuit breaking<br/>• Service mesh integration |
+| **Workflow Management** | Process automation and control | • Process automation<br/>• Task scheduling<br/>• State management<br/>• Error recovery<br/>• Transaction management |
+| **Integration Capabilities** | System integration features | • API gateway<br/>• Protocol translation<br/>• Message transformation<br/>• Service routing<br/>• Security management |
+| **Monitoring and Analytics** | System oversight and analysis | • Performance metrics<br/>• System health<br/>• Resource utilization<br/>• Error tracking<br/>• Usage analytics |
+
+## Integration Points
+
+```mermaid
+graph LR
+    A[Orchestrator] --> B[Core Banking]
+    A --> C[Digital Services]
+    A --> D[Lending]
+    A --> E[Card Services]
+    A --> F[External APIs]
+    
+    style A fill:#f9f,stroke:#333,stroke-width:4px
+```
+
+> ℹ️ **System Integration**
+> 
+> The Orchestrator module provides a unified interface for all system integrations, ensuring consistent communication and data flow across the entire banking platform. The service bus layer enables:
+> - Seamless integration with legacy systems
+> - Real-time data synchronization
+> - Bi-directional communication
+> - Protocol translation
+> - Message transformation
+> - Service discovery
+> - Load balancing
+> - Circuit breaking
+
+## Technology Extension Capabilities
+
+| Extension Type | Description | Benefits |
+|----------------|-------------|----------|
+| **Custom Services** | Build and deploy new services | • Rapid service development<br/>• Standardized integration<br/>• Automated deployment<br/>• Service monitoring<br/>• Performance optimization |
+| **API Extensions** | Extend existing APIs | • API versioning<br/>• Custom endpoints<br/>• Enhanced security<br/>• Rate limiting<br/>• Documentation |
+| **Event Handlers** | Custom event processing | • Event subscription<br/>• Custom processing<br/>• Event transformation<br/>• Error handling<br/>• Monitoring |
+
+> 💡 **Technology Advancement**
+> 
+> Woodcore's service bus layer enables organizations to:
+> - Build custom services on top of core banking
+> - Integrate with emerging technologies
+> - Implement new payment methods
+> - Add blockchain capabilities
+> - Deploy AI/ML services
+> - Create custom workflows
+> - Extend existing functionality
+> - Implement new business rules
+
+## Security and Performance
+
+| Aspect | Features | Capabilities |
+|--------|----------|--------------|
+| **Security Features** | System protection | • API security<br/>• Authentication<br/>• Authorization<br/>• Encryption<br/>• Audit logging |
+| **Performance Features** | System optimization | • Caching<br/>• Load balancing<br/>• Rate limiting<br/>• Circuit breaking<br/>• Resource optimization |
+
+> ⚠️ **Important Note**
+> 
+> Ensure proper configuration of service endpoints and security policies before deploying the Orchestrator in production. This includes:
+> - Service endpoint configuration
+> - Security policy implementation
+> - Performance tuning
+> - Monitoring setup
+> - Backup and recovery procedures

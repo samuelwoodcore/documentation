@@ -6,11 +6,9 @@ icon: "webhook"
 
 Webhooks are a powerful tool for integrating real-time notifications into your application. They allow your system to receive updates when specific events occur on Woodcore, without needing to poll for changes. This guide explains how webhooks work on Woodcore, how to use them, and recommened practices for handling events effectively.
 
-
 ### Alloweds Events
 
 There are just a few limitations with the type of events that can trigger a hook on Woodcore. Almsot all the `POST` event are webhook enabled and you have the flexiblity to turn it on or off, disable or enable the hook and event based on your specific requirements.
-
 
 ### Event Data & Security
 
@@ -83,7 +81,7 @@ public class HMacExample {
     String signature = ""; //put in the request's header value for x-swim-token
     byte [] byteKey = key.getBytes("UTF-8");
     SecretKeySpec keySpec = new SecretKeySpec(byteKey, HMAC_SHA256);
-    Mac sha256_HMAC = Mac.getInstance(HMAC_SHA256);      
+    Mac sha256_HMAC = Mac.getInstance(HMAC_SHA256);
     sha256_HMAC.init(keySpec);
     byte [] mac_data = sha256_HMAC.
     doFinal(body.toString().getBytes("UTF-8"));
@@ -93,7 +91,7 @@ public class HMacExample {
       // respond with the http 200 response immediately before attempting to process the response
     }else{
       // this isn't from woodcore, ignore it
-    }  
+    }
   }
 }
 ```

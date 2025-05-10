@@ -1,0 +1,274 @@
+---
+title: Customer & Accounts
+icon: cloud
+description: Comprehensive customer and account management system that handles individual, corporate, and group relationships with flexible account associations.
+---
+
+<Note>
+The Client Management module is the foundation of Woodcore's banking system, handling all aspects of customer information, relationship management, and account associations. It provides a flexible framework for managing diverse customer types and their various banking relationships.
+</Note>
+
+<AccordionGroup>
+  <Accordion title="Customer Overview" defaultOpen={true}>
+    ```mermaid
+    flowchart TB
+        subgraph CustomerTypes[Customer Types]
+            Individual[Individual Customer]
+            Corporate[Corporate Customer]
+            Group[Group/Joint Customer]
+            Trust[Trust Customer]
+        end
+
+        subgraph AccountTypes[Account Types]
+            Savings[Savings Account]
+            Current[Current Account]
+            Loan[Loan Account]
+            Fixed[Fixed Deposit]
+            Investment[Investment Account]
+        end
+
+        subgraph Relationships[Customer-Account Relationships]
+            Individual --> Savings
+            Individual --> Current
+            Individual --> Loan
+            Individual --> Fixed
+            Corporate --> Current
+            Corporate --> Loan
+            Corporate --> Investment
+            Group --> Savings
+            Group --> Current
+            Trust --> Investment
+        end
+    ```
+
+    <Tip>
+    A single customer can be associated with multiple accounts of different types, creating a comprehensive banking relationship.
+    </Tip>
+  </Accordion>
+
+  <Accordion title="Customer Types">
+    <AccordionGroup>
+      <Accordion title="Individual Customers" defaultOpen={true}>
+        <Info>
+        Individual customers are natural persons who can hold personal accounts and access retail banking services.
+        </Info>
+
+        - Personal identification details
+        - Contact information
+        - Employment details
+        - Income information
+        - Risk profile
+        - Banking preferences
+      </Accordion>
+
+      <Accordion title="Corporate Customers">
+        <Info>
+        Corporate customers are legal entities such as companies, partnerships, and organizations.
+        </Info>
+
+        - Business registration details
+        - Corporate structure
+        - Authorized signatories
+        - Business classification
+        - Financial statements
+        - Compliance documents
+      </Accordion>
+
+      <Accordion title="Group/Joint Customers">
+        <Info>
+        Group customers represent multiple individuals sharing accounts or services.
+        </Info>
+
+        - Group structure
+        - Member details
+        - Relationship types
+        - Authorization levels
+        - Group policies
+      </Accordion>
+
+      <Accordion title="Trust Customers">
+        <Info>
+        Trust customers represent legal arrangements where assets are held for beneficiaries.
+        </Info>
+
+        - Trust deed details
+        - Trustee information
+        - Beneficiary details
+        - Trust type
+        - Asset management rules
+      </Accordion>
+    </AccordionGroup>
+  </Accordion>
+
+  <Accordion title="Account Relationships">
+    ```mermaid
+    flowchart LR
+        subgraph CustomerProfile[Customer Profile]
+            BasicInfo[Basic Information]
+            KYC[KYC Details]
+            RiskProfile[Risk Profile]
+            Preferences[Preferences]
+        end
+
+        subgraph AccountRelationships[Account Relationships]
+            Primary[Primary Account]
+            Secondary[Secondary Accounts]
+            Joint[Joint Accounts]
+            Beneficiary[Beneficiary Accounts]
+        end
+
+        subgraph AccountTypes[Account Types]
+            Savings[Savings]
+            Current[Current]
+            Loan[Loan]
+            Fixed[Fixed Deposit]
+        end
+
+        CustomerProfile --> AccountRelationships
+        AccountRelationships --> AccountTypes
+    ```
+
+    <AccordionGroup>
+      <Accordion title="Primary Accounts">
+        - Main operating account
+        - Salary/income account
+        - Primary savings account
+        - Default transaction account
+      </Accordion>
+
+      <Accordion title="Secondary Accounts">
+        - Additional savings accounts
+        - Investment accounts
+        - Special purpose accounts
+        - Foreign currency accounts
+      </Accordion>
+
+      <Accordion title="Joint Accounts">
+        - Shared ownership accounts
+        - Multiple signatory accounts
+        - Family accounts
+        - Business partnership accounts
+      </Accordion>
+
+      <Accordion title="Beneficiary Accounts">
+        - Trust beneficiary accounts
+        - Estate accounts
+        - Minor accounts
+        - Power of attorney accounts
+      </Accordion>
+    </AccordionGroup>
+  </Accordion>
+
+  <Accordion title="Customer Management">
+    <AccordionGroup>
+      <Accordion title="Registration Process">
+        ```mermaid
+        flowchart TD
+            Start[Start Registration] --> CollectInfo[Collect Basic Information]
+            CollectInfo --> VerifyID[Verify Identity]
+            VerifyID --> RiskAssess[Risk Assessment]
+            RiskAssess --> ComplianceCheck[Compliance Check]
+            ComplianceCheck --> CreateProfile[Create Customer Profile]
+            CreateProfile --> SetupAccounts[Setup Initial Accounts]
+            SetupAccounts --> End[Registration Complete]
+        ```
+
+        <Warning>
+        All customer registrations must comply with KYC and AML regulations.
+        </Warning>
+      </Accordion>
+
+      <Accordion title="Profile Management">
+        - Update personal information
+        - Modify contact details
+        - Change preferences
+        - Update documentation
+        - Manage relationships
+      </Accordion>
+
+      <Accordion title="Account Management">
+        - Open new accounts
+        - Close accounts
+        - Modify account details
+        - Update account status
+        - Manage account relationships
+      </Accordion>
+    </AccordionGroup>
+  </Accordion>
+
+  <Accordion title="Security & Compliance">
+    <AccordionGroup>
+      <Accordion title="Data Protection">
+        - Encryption of sensitive data
+        - Access control mechanisms
+        - Data retention policies
+        - Privacy controls
+      </Accordion>
+
+      <Accordion title="Compliance Requirements">
+        - KYC verification
+        - AML monitoring
+        - Regulatory reporting
+        - Audit trails
+      </Accordion>
+
+      <Accordion title="Risk Management">
+        - Customer risk scoring
+        - Transaction monitoring
+        - Fraud detection
+        - Compliance alerts
+      </Accordion>
+    </AccordionGroup>
+  </Accordion>
+
+  <Accordion title="Integration Points">
+    ```mermaid
+    flowchart LR
+        subgraph CoreSystems[Core Systems]
+            Client[Client Management]
+            Account[Account Management]
+            Transaction[Transaction Processing]
+            Compliance[Compliance System]
+        end
+
+        subgraph ExternalSystems[External Systems]
+            KYC[KYC Provider]
+            CreditBureau[Credit Bureau]
+            Payment[Payment Systems]
+            Reporting[Reporting Systems]
+        end
+
+        Client --> Account
+        Account --> Transaction
+        Client --> Compliance
+        Client --> KYC
+        Client --> CreditBureau
+        Transaction --> Payment
+        Compliance --> Reporting
+    ```
+
+    <AccordionGroup>
+      <Accordion title="Internal Systems">
+        - Account management
+        - Transaction processing
+        - Loan management
+        - Deposit management
+      </Accordion>
+
+      <Accordion title="External Systems">
+        - KYC providers
+        - Credit bureaus
+        - Payment gateways
+        - Regulatory systems
+      </Accordion>
+    </AccordionGroup>
+  </Accordion>
+</AccordionGroup>
+
+## Next Steps
+
+Explore related modules to learn more about:
+- [Account Management](/modules/core-banking/accounts)
+- [Transaction Processing](/modules/core-banking/transactions)
+- [Loan Management](/modules/core-banking/loans)
+- [Deposit Management](/modules/core-banking/deposits)

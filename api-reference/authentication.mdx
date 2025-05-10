@@ -4,29 +4,29 @@ description: "Guide to authentication and authorization of Woodcore API access"
 icon: fingerprint
 ---
 
-Woodcore has an AWS-like API structure so if you are familair with AWS access and secret key you will this process even more descriptive but if you dont, hang on tight. 
+Woodcore has an AWS-like API structure so if you are familair with AWS access and secret key you will this process even more descriptive but if you dont, hang on tight.
 
-First, you need to have or have done the following 
+First, you need to have or have done the following
 
 - An employee creation completed
 - A user account associated with the employee created - [Allow API access]
 - Have assigned requisite permissions on user
 
-Then you create an API by clicking on the Generate API key inside the user profile. 
+Then you create an API by clicking on the Generate API key inside the user profile.
 <Frame>
   <img src="/images/apikey.png" />
 </Frame>
 
 <Note>
- Take note of the following 
- - You can only create an APi key to a user that has api access enabled 
- - You can only generate two (2) api key per user 
+ Take note of the following
+ - You can only create an APi key to a user that has api access enabled
+ - You can only generate two (2) api key per user
  - You must provide an IP to be whitelisted. This may not be effective on sandbox but will be sure reject your request if they do not come from the whitelisted IP
 </Note>
 
 Now you have your freshly baked API key and please remember to keep this super safe because it has every level of permision trusted on the base user on it, happy hacking! 🚀
 
-```bash 
+```bash
 curl -X GET https://base_url/api/v1/clients \
 -H "Authorization: Bearer wc_env_xxxxxxxxxxx"
 ```
