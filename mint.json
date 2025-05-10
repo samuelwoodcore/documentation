@@ -9,7 +9,15 @@
   "feedback": {
     "thumbsRating": true
   },
-  "theme": "prism",
+  "integrations": {
+    "ga4": {
+      "measurementId": "G-9CTCNH4H4E"
+    },
+    "gtm": {
+      "tagId": "GTM-KFCBGL3"
+    }
+  },
+  "theme": "quill",
   "sidebar": {},
   "metadata": {
     "og:image": "https://res.cloudinary.com/dko7n7x16/image/upload/v1735379313/wcfavicon_oxpolv.svg",
