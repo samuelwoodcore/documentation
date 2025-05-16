@@ -1,0 +1,46 @@
+---
+title: 'Security Endpoints'
+description: 'API endpoints for managing security and access control'
+icon: shield
+---
+
+The security endpoints provide essential functionality for managing API access, IP whitelisting, and monitoring the health of the API gateway. These endpoints are crucial for maintaining a secure and controlled environment for your API integrations.
+
+<Callout type="warning">
+  **Important**: All security endpoints (except health check) require a valid API key in the Authorization header. Make sure to include the `Bearer` token in your requests.
+</Callout>
+
+<CardGroup cols={2}>
+  <Card title="IP Whitelist" icon="network-wired" href="/security/endpoint/ipwhitelist">
+    Manage IP whitelisting for your API keys. This endpoint allows you to add IP addresses that are authorized to make API calls, providing an additional layer of security.
+  </Card>
+
+  <Card title="Key Profile" icon="key" href="/security/endpoint/keyprofile">
+    View detailed information about your API keys, including permissions, associated users, and usage statistics. Essential for monitoring and auditing API access.
+  </Card>
+
+  <Card title="Health Check" icon="heartbeat" href="/security/endpoint/health">
+    Monitor the status and availability of the API gateway. This public endpoint helps you verify that the service is operational and responding correctly.
+  </Card>
+
+  <Card title="Remove Whitelisted IP" icon="trash" href="/security/endpoint/remove-whitelistedip">
+    Remove IP addresses from the whitelist when they are no longer needed or when you need to revoke access. Important for maintaining security when IP addresses change.
+  </Card>
+</CardGroup>
+
+<Callout type="info">
+  **Best Practice**: Regularly review your IP whitelist and API key usage to ensure only authorized systems have access to your API endpoints.
+</Callout>
+
+## Security Considerations
+
+When working with these endpoints, keep in mind:
+
+1. **IP Whitelisting**: Always whitelist only the necessary IP addresses to minimize the attack surface
+2. **API Key Management**: Rotate API keys periodically and remove unused keys
+3. **Monitoring**: Use the health check endpoint to monitor service availability
+4. **Audit Trail**: Regularly review key profiles to track API usage and detect any suspicious activity
+
+<Note>
+  For additional security features or custom requirements, please contact our support team at compliance@woodcore.co
+</Note>

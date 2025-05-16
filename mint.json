@@ -64,6 +64,10 @@
     {
       "name": "API Reference ᴬᴾᴵ",
       "url": "api-reference"
+    },
+    {
+      "name": "Security ᴬᴾᴵ",
+      "url": "security"
     }
   ],
   "anchors": [
@@ -122,6 +126,21 @@
       "group": "Changelog",
       "pages": [
         "changelog/logs"
+      ]
+    },
+    {
+      "group": "Overview",
+      "pages": [
+        "security/endpoint/introduction"
+      ]
+    },
+    {
+      "group": "Security API Reference",
+      "pages": [
+        "security/endpoint/ipwhitelist",
+        "security/endpoint/approve",
+        "security/endpoint/keyprofile",
+        "security/endpoint/remove-whitelistedip"
       ]
     },
     {

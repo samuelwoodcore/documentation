@@ -23,6 +23,46 @@ Start your journey in the following steps
  For Legacy API's for on-premise customers please contact **business@woodcore.co**
 </Note>
 
+#### Base URLs
+
+| Environment | Version | Base URL |
+|------------|---------|----------|
+| `Sandbox`    | `v1`      | `https://spark.test.woodcoreapp.com/api/v2` |
+| `Production`    | `v1`      | `https://sandbox-api.woodcore.co/api/v2` |
+|            |           |                             |
+| `Sanbox` | `v2`      | `https://api.studio.woodcore.co/api/v2` |
+| `Production` | `v2`      | `https://api.woodcore.co/api/v2` |
+
+<Callout type="warning">
+  **Important Notice**: API v1 will be deprecated and phased out on December 29, 2025. We recommend migrating to v2 as soon as possible to ensure uninterrupted service.
+</Callout>
+
+<Callout type="warning">
+  **Security First**: Before making any API calls, new tenants must complete the following security setup:
+  1. Generate and secure API keys
+  2. Configure IP whitelisting
+  3. Set up proper authentication
+</Callout>
+
+## Security Setup
+
+As a new tenant, your first step should be to configure your security settings. Visit our [Security Endpoints](/security/endpoint/introduction) documentation to:
+
+<CardGroup cols={2}>
+  <Card title="IP Whitelist" icon="network-wired" href="/security/endpoint/ipwhitelist">
+    Configure which IP addresses can access your API endpoints
+  </Card>
+  <Card title="Key Profile" icon="key" href="/security/endpoint/keyprofile">
+    Manage and monitor your API keys
+  </Card>
+</CardGroup>
+
+<Note>
+  For security compliance and custom requirements, please contact our compliance team at compliance@woodcore.co
+</Note>
+
+### Modular Guides 
+
 <CardGroup cols={2}>
   <Card title="Core Banking" icon="landmark" href="/modules/core-banking/intro">
     Core banking operations including accounts, loans, and transactions

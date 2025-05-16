@@ -1,0 +1,151 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+        "title": "Woodcore Access Gateway API",
+        "description": "API for managing access to Woodcore resources",
+        "version": "2.0.0"
+    },
+    "servers": [
+        {
+            "url": "https://spark.test.woodcore.co/api/v2",
+            "description": "Spark V2 Server"
+        },
+        {
+            "url": "https://spark.test.woodcore.co/api/v2",
+            "description": "Spark Security Server"
+        }
+    ],
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "scheme": "bearer"
+            }
+        }
+    },
+    "paths": {
+        "/gateway/apiKeys/ipwhitelist": {
+            "post": {
+                "summary": "IP Whitelist",
+                "description": "This endpoint is responsible for whitelisting an IP address which is to be attached to a particular API KEY.",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "required": [
+                                    "ips"
+                                ],
+                                "properties": {
+                                    "ips": {
+                                        "type": "string",
+                                        "example": "136.144.17.156"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "IP successfully whitelisted"
+                    }
+                }
+            }
+        },
+        "/gateway/apiKeys/ipwhitelist/approve/{otp}": {
+            "post": {
+                "summary": "Approve IP Whitelist",
+                "description": "This endpoint approves a whitelisted IP address with the use of an OTP in the path sent to the user's email address as an extra layer of security.",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "otp",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "w5iaf83wnfn"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "IP whitelist successfully approved"
+                    }
+                }
+            }
+        },
+        "/gateway/keyprofile": {
+            "get": {
+                "summary": "Key Profile",
+                "description": "Fetch the details associated with an API KEY with this endpoint.",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "API key profile retrieved successfully"
+                    }
+                }
+            }
+        },
+        "/gateway/health": {
+            "get": {
+                "summary": "Health Check",
+                "description": "Check the health status of the API",
+                "responses": {
+                    "200": {
+                        "description": "API is healthy"
+                    }
+                }
+            }
+        },
+        "/gateway/apiKeys/remove-whitelistedip": {
+            "post": {
+                "summary": "Remove Whitelisted IP",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "required": [
+                                    "ips"
+                                ],
+                                "properties": {
+                                    "ips": {
+                                        "type": "string",
+                                        "example": ""
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "IP successfully removed from whitelist"
+                    }
+                }
+            }
+        }
+    }
+}
