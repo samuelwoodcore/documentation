@@ -139,8 +139,7 @@
       "pages": [
         "security/endpoint/ipwhitelist",
         "security/endpoint/approve",
-        "security/endpoint/keyprofile",
-        "security/endpoint/remove-whitelistedip"
+        "security/endpoint/keyprofile"
       ]
     },
     {
