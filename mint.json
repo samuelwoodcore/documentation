@@ -165,6 +165,7 @@
     {
       "group": "Loan Account",
       "pages": [
+        "api-reference/endpoint/create_loans",
         "api-reference/endpoint/loans_342_repayment",
         "api-reference/endpoint/loans_329_reject",
         "api-reference/endpoint/loans_7_disburse",

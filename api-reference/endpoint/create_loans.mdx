@@ -1,0 +1,33 @@
+---
+title: Create Loan Account
+openapi: 'POST /loans'
+---
+
+# Create Loan Account
+
+A loan account application can be created by using this endpoint.
+
+##### Field Description
+
+| Field | Description | Type |
+| --- | --- | --- |
+| clientId | The client submitting a loan application. | Integer |
+| productId | Desccribes the Identifier of the loan product associated with the loan application. The loan application inherits some of the information from its associated loan product. | Integer |
+| principal | The loan amount to be disbursed to through loan. | Integer |
+| duration | The loan term period to use. e.g. 10,12 | Integer |
+| durationBy | Describes the type of duration cycle to be used for the loan. Available values include: \[Month, Year\] | String |
+| loanType | To represent different type of loans. At present there are three type of loans are supported. Available loan types: ***individual***: Loan given to individual member. ***group***: Loan given to group as a whole. ***jlg***: Joint liability group loan given to members in a group on individual basis. JLG loan can be given to one or more members in a group. | String |
+| numberOfRepayments | This is the number of installments to repay. e.g 1 (repayments) every 12 months. | Integer |
+| repaymentEvery | This is used like numberOfRepayments e.g 1 (repayments) every 1 month. | Integer |
+| repaymentFrequency | This describes the frequency of payments for the loan. Available options include: \[Monthly, Yearly\] | String |
+| interestRate | This describes the rate of interest calculated on the principal amount of the loan. | Integer |
+| interestType | Describes the type of interest calculated on the loan. Examples include: fiat, declining, e.t.c. | String. |
+| linkDepositAccountId | Describes the Identifier of the savings account to be linked to the loan account. | Integer |
+| expectedDisbursementDate | The proposed disbursement date of the loan so a proposed repayment schedule can be provided. | String |
+| createdDate | The date the loan application was submitted by applicant. | String |
+| dateFormat | The default date format on WoodCore "dd MMMM yyyy" | String |
+| locale | "en" by default | String |
+
+## Parameters
+
+- **woodcoretenant** (header, string, required: False): Example: `default`
