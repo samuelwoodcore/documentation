@@ -30,3 +30,274 @@ Now you have your freshly baked API key and please remember to keep this super s
 curl -X GET https://base_url/api/v1/clients \
 -H "Authorization: Bearer wc_env_xxxxxxxxxxx"
 ```
+
+## Asymmetric Authentication [Recommended]
+
+For enhanced security, Woodcore supports asymmetric authentication using RSA key pairs. This approach provides better security than simple API keys.
+
+### Step 1: Generate Private Key
+
+First, call the endpoint to generate your private key:
+
+```bash
+curl -X POST https://api.woodcore.co/v2/gateway/generateKey \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer YOUR_API_KEY"
+```
+
+<Callout type="warning">
+  **Important**: Store the private key securely as it will not be displayed again. This key is used to sign all your API requests.
+</Callout>
+
+### Step 2: Sign Your Messages
+
+Use your private key to sign your request payload. Here are examples in different programming languages:
+
+<Accordion title="Node.js">
+```javascript
+const crypto = require('crypto');
+
+async function signRequest(payload, privateKey) {
+    const dataToSign = typeof payload === 'string' ? payload : JSON.stringify(payload);
+    const sign = crypto.createSign('RSA-SHA256');
+    sign.update(dataToSign);
+    const signature = sign.sign(privateKey, 'base64');
+    
+    return signature;
+}
+
+// Example usage
+const payload = {
+    name: "Cash at Office Vault",
+    glCode: "960F05F3FB39",
+    manualEntriesAllowed: true,
+    type: "asset",
+    parentId: "29",
+    usage: "header",
+    description: "Cash at Head office branch"
+};
+
+const signature = await signRequest(payload, privateKey);
+const timestamp = new Date().getTime();
+
+// API Request
+const response = await fetch('https://api.woodcore.co/v2/endpoint', {
+    method: 'POST',
+    headers: {
+        'X-Signature': signature,
+        'X-Timestamp': timestamp,
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(payload)
+});
+```
+</Accordion>
+
+<Accordion title="Java">
+```java
+import java.security.*;
+import java.security.spec.PKCS8EncodedKeySpec;
+import java.util.Base64;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+public class WoodcoreAuth {
+    private static String signRequest(String payload, String privateKeyPEM) throws Exception {
+        // Remove PEM headers and decode
+        String privateKeyContent = privateKeyPEM
+            .replace("-----BEGIN PRIVATE KEY-----", "")
+            .replace("-----END PRIVATE KEY-----", "")
+            .replaceAll("\\s", "");
+        
+        byte[] privateKeyBytes = Base64.getDecoder().decode(privateKeyContent);
+        PKCS8EncodedKeySpec keySpec = new PKCS8EncodedKeySpec(privateKeyBytes);
+        KeyFactory keyFactory = KeyFactory.getInstance("RSA");
+        PrivateKey privateKey = keyFactory.generatePrivate(keySpec);
+        
+        // Sign the payload
+        Signature signature = Signature.getInstance("SHA256withRSA");
+        signature.initSign(privateKey);
+        signature.update(payload.getBytes("UTF-8"));
+        
+        return Base64.getEncoder().encodeToString(signature.sign());
+    }
+}
+```
+</Accordion>
+
+<Accordion title="Python">
+```python
+import base64
+import json
+from cryptography.hazmat.primitives import hashes, serialization
+from cryptography.hazmat.primitives.asymmetric import rsa, padding
+from cryptography.hazmat.backends import default_backend
+
+def sign_request(payload, private_key_pem):
+    # Load private key
+    private_key = serialization.load_pem_private_key(
+        private_key_pem.encode(),
+        password=None,
+        backend=default_backend()
+    )
+    
+    # Prepare data to sign
+    data_to_sign = json.dumps(payload) if isinstance(payload, dict) else payload
+    
+    # Sign the data
+    signature = private_key.sign(
+        data_to_sign.encode(),
+        padding.PKCS1v15(),
+        hashes.SHA256()
+    )
+    
+    return base64.b64encode(signature).decode()
+
+# Example usage
+payload = {
+    "name": "Cash at Office Vault",
+    "glCode": "960F05F3FB39",
+    "manualEntriesAllowed": True,
+    "type": "asset",
+    "parentId": "29",
+    "usage": "header",
+    "description": "Cash at Head office branch"
+}
+
+signature = sign_request(payload, private_key_pem)
+timestamp = int(time.time() * 1000)
+```
+</Accordion>
+
+<Accordion title="Go">
+```go
+package main
+
+import (
+    "crypto"
+    "crypto/rand"
+    "crypto/rsa"
+    "crypto/sha256"
+    "crypto/x509"
+    "encoding/base64"
+    "encoding/json"
+    "encoding/pem"
+    "fmt"
+)
+
+func signRequest(payload interface{}, privateKeyPEM string) (string, error) {
+    // Decode PEM block
+    block, _ := pem.Decode([]byte(privateKeyPEM))
+    if block == nil {
+        return "", fmt.Errorf("failed to decode PEM block")
+    }
+    
+    // Parse private key
+    privateKey, err := x509.ParsePKCS8PrivateKey(block.Bytes)
+    if err != nil {
+        return "", err
+    }
+    
+    rsaPrivateKey, ok := privateKey.(*rsa.PrivateKey)
+    if !ok {
+        return "", fmt.Errorf("not an RSA private key")
+    }
+    
+    // Prepare data to sign
+    var dataToSign []byte
+    if str, ok := payload.(string); ok {
+        dataToSign = []byte(str)
+    } else {
+        dataToSign, err = json.Marshal(payload)
+        if err != nil {
+            return "", err
+        }
+    }
+    
+    // Sign the data
+    hashed := sha256.Sum256(dataToSign)
+    signature, err := rsa.SignPKCS1v15(rand.Reader, rsaPrivateKey, crypto.SHA256, hashed[:])
+    if err != nil {
+        return "", err
+    }
+    
+    return base64.StdEncoding.EncodeToString(signature), nil
+}
+```
+</Accordion>
+
+<Accordion title="Rust">
+```rust
+use base64;
+use rsa::{pkcs8::DecodePrivateKey, RsaPrivateKey};
+use rsa::signature::{Signer, Verifier};
+use rsa::pkcs1v15::{SigningKey, VerifyingKey};
+use sha2::Sha256;
+use serde_json;
+
+fn sign_request(payload: &str, private_key_pem: &str) -> Result<String, Box<dyn std::error::Error>> {
+    // Parse private key
+    let private_key = RsaPrivateKey::from_pkcs8_pem(private_key_pem)?;
+    let signing_key = SigningKey::<Sha256>::new(private_key);
+    
+    // Sign the payload
+    let signature = signing_key.sign(payload.as_bytes());
+    
+    // Encode to base64
+    Ok(base64::encode(signature.to_bytes()))
+}
+```
+</Accordion>
+
+<Accordion title="C#">
+```csharp
+using System;
+using System.Security.Cryptography;
+using System.Text;
+using Newtonsoft.Json;
+
+public class WoodcoreAuth
+{
+    public static string SignRequest(object payload, string privateKeyPEM)
+    {
+        // Remove PEM headers
+        string privateKeyContent = privateKeyPEM
+            .Replace("-----BEGIN PRIVATE KEY-----", "")
+            .Replace("-----END PRIVATE KEY-----", "")
+            .Replace("\n", "")
+            .Replace("\r", "");
+        
+        byte[] privateKeyBytes = Convert.FromBase64String(privateKeyContent);
+        
+        using (RSA rsa = RSA.Create())
+        {
+            rsa.ImportPkcs8PrivateKey(privateKeyBytes, out _);
+            
+            // Prepare data to sign
+            string dataToSign = payload is string ? (string)payload : JsonConvert.SerializeObject(payload);
+            byte[] dataBytes = Encoding.UTF8.GetBytes(dataToSign);
+            
+            // Sign the data
+            byte[] signatureBytes = rsa.SignData(dataBytes, HashAlgorithmName.SHA256, RSASignaturePadding.Pkcs1);
+            
+            return Convert.ToBase64String(signatureBytes);
+        }
+    }
+}
+```
+</Accordion>
+
+### Step 3: Make API Requests
+
+Include the signature and timestamp in your request headers:
+
+```bash
+curl -X POST https://api.woodcore.co/v2/endpoint \
+-H "X-Signature: YOUR_SIGNATURE" \
+-H "X-Timestamp: TIMESTAMP" \
+-H "Content-Type: application/json" \
+-d '{"your": "payload"}'
+```
+
+<Callout type="info">
+  **Best Practice**: Always include a timestamp in your requests to prevent replay attacks. The timestamp should be within 5 minutes of the server time.
+</Callout>
