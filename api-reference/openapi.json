@@ -6919,6 +6919,7 @@
                     "debits": [],
                     "operationType": "Debit",
                     "referenceNumber": "Nibss-internal-002",
+                    
                     "customerAccounts": [
                       {
                         "customerAccountId": "000000001",
@@ -6942,6 +6943,10 @@
                     ],
                     "operationType": "Credit",
                     "referenceNumber": "98ddw123",
+                    "uniqueReferenceKey": {
+                      "type": "string",
+                      "example": "dsfvghtrhrg132evsbwd-unq"
+                    },
                     "customerAccounts": [
                       {
                         "customerAccountId": "000000001",
