@@ -11,23 +11,11 @@ This allows the retrieval of all loan account in a paginated or non-paginated fo
 
 | Name | Description | Required | Type |
 | --- | --- | --- | --- |
-| offset | Pagination, index to start searching at when retrieving elements, used in combination with limit to paginate results | false | Integer |
-| limit | Pagination, the number of elements to retrieve, used in combination with offset to paginate results | false | Integer |
-| sortBy | The criteria based on which the records will be sorted. Expected format is , e.g., sortBy = field1:ASC,field2:DESC. | false | String |
-| orderBy | one of displayName, accountNo, officeId, officeNameOrders. Filters the results by the field indicated. | false | String |
-| officeId | Provides ability to restrict list of loans returned based on the office there associated with. | false | Integer |
-| accountNo | Use account no. of loans to restrict results. | false | String |
+| page | Pagination, index to start searching at when retrieving elements, used in combination with limit to paginate results | false | Integer |
+| perPage | Pagination, the number of elements to retrieve, used in combination with offset to paginate results | false | Integer |
 
 **Example Requests**:
 
-baseUrl[/api/v2/loans](https://api.test.woodcoreapp.com/api/v1/loans)
+baseUrl[/api/v2/loans](https://spark.test.woodcore.co/api/v2/loans)
 
-[baseUrl/api/v2/loans?fields=accountNo](https://api.test.woodcoreapp.com/api/v1/loans?fields=accountNo)
-
-[baseUrl/api/v2/loans?offset=10&limit=50](https://api.test.woodcoreapp.com/api/v1/loans?offset=10&limit=50)
-
-[baseUrl/api/v2/loans?orderBy=accountNo&sortOrder=DESC](https://api.test.woodcoreapp.com/api/v1/loans?orderBy=accountNo&sortOrder=DESC)
-
-## Parameters
-
-- **status** (query, string, required: False): Example: `Active`
+[baseUrl/api/v2/loans?offset=10&limit=50](https://spark.test.woodcore.co/api/v2/loans?page=10&perPage=50)

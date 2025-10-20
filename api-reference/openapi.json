@@ -5605,6 +5605,42 @@
       }
     },
     "/loans": {
+      "get": {
+        "tags": [
+          "Loan Accounts"
+        ],
+        "summary": "List All Loan Accounts",
+        "operationId": "listAllLoanAccounts",
+        "parameters": [
+          {
+            "name": "status",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "Active"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "{}",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/loans": {
       "post": {
         "tags": [
           "Loan Accounts"
@@ -6620,12 +6656,7 @@
                 "Customer Savings Account to Ledger": {
                   "value": {
                     "comments": "Transfer from GL to Account",
-                    "credits": [
-                       {
-                        "amount": "30000",
-                        "glAccountId": "30"
-                      }
-                    ],
+                    "credits": [],
                     "currencyCode": "NGN",
                     "customerAccounts": [
                       {
@@ -6633,9 +6664,14 @@
                         "customerAccountId": "000000458"
                       }
                     ],
-                    "debits": [],
+                    "debits": [
+                      {
+                        "amount": "30000",
+                        "glAccountId": "30"
+                      }
+                    ],
                     "officeId": "1",
-                    "operationType": "Debit",
+                    "operationType": "Credit",
                     "referenceNumber": "dsfvghtrhrg132evsbwd",
                     "uniqueReferenceKey": "dsfvghtrhrg132evsbwd-unq",
                     "transactionDate": "17 March 2022"
