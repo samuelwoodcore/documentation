@@ -6642,6 +6642,10 @@
                     "type": "string",
                     "example": "dsfvghtrhrg132evsbwd"
                   },
+                  "uniqueReferenceKey": {
+                    "type": "string",
+                    "example": "dsfvghtrhrg132evsbwd-unq"
+                  },
                   "transactionDate": {
                     "type": "string",
                     "example": "17 March 2022"
