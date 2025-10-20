@@ -6673,6 +6673,7 @@
                     "officeId": "1",
                     "operationType": "Credit",
                     "referenceNumber": "dsfvghtrhrg132evsbwd",
+                    "uniqueReferenceKey": "dsfvghtrhrg132evsbwd-unq",
                     "transactionDate": "17 March 2022"
                   }
                 },
@@ -6696,6 +6697,7 @@
                     "officeId": "1",
                     "operationType": "Credit",
                     "referenceNumber": "dsfvghtrhrg132evsbwd",
+                    "uniqueReferenceKey": "dsfvghtrhrg132evsbwd-unq",
                     "transactionDate": "17 March 2022"
                   }
                 }
@@ -6919,7 +6921,7 @@
                     "debits": [],
                     "operationType": "Debit",
                     "referenceNumber": "Nibss-internal-002",
-                    
+                    "uniqueReferenceKey": "dsfvghtrhrg132evsbwd-unq",
                     "customerAccounts": [
                       {
                         "customerAccountId": "000000001",
@@ -6943,10 +6945,7 @@
                     ],
                     "operationType": "Credit",
                     "referenceNumber": "98ddw123",
-                    "uniqueReferenceKey": {
-                      "type": "string",
-                      "example": "dsfvghtrhrg132evsbwd-unq"
-                    },
+                    "uniqueReferenceKey": "dsfvghtrhrg132evsbwd-unq",
                     "customerAccounts": [
                       {
                         "customerAccountId": "000000001",
