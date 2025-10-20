@@ -9,6 +9,9 @@
   "feedback": {
     "thumbsRating": true
   },
+  "openapi": [
+    "api-reference/openapi.json"
+  ],
   "integrations": {
     "ga4": {
       "measurementId": "G-9CTCNH4H4E"
