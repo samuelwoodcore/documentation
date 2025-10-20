@@ -11,11 +11,11 @@ This allows the retrieval of all loan account in a paginated or non-paginated fo
 
 | Name | Description | Required | Type |
 | --- | --- | --- | --- |
-| page | Pagination, index to start searching at when retrieving elements, used in combination with limit to paginate results | false | Integer |
-| perPage | Pagination, the number of elements to retrieve, used in combination with offset to paginate results | false | Integer |
+| page | Pagination, index to start searching at when retrieving elements, used in combination with perPage to paginate results | false | Integer |
+| perPage | Pagination, the number of elements to retrieve, used in combination with page to paginate results | false | Integer |
 
 **Example Requests**:
 
-baseUrl[/api/v2/loans](https://spark.test.woodcore.co/api/v2/loans)
+[baseUrl/api/v2/loans](https://spark.test.woodcore.co/api/v2/loans)
 
-[baseUrl/api/v2/loans?offset=10&limit=50](https://spark.test.woodcore.co/api/v2/loans?page=10&perPage=50)
+[baseUrl/api/v2/loans?page=10&perPage=50](https://spark.test.woodcore.co/api/v2/loans?page=10&perPage=50)
