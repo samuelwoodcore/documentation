@@ -6869,54 +6869,143 @@
         "requestBody": {
           "content": {
             "application/json": {
-              "examples": {
-                "Deposit Account to Ledger Account": {
-                  "value": {
-                    "officeId": "1",
-                    "transactionDate": "31 July 2024",
-                    "comments": "Transfer from Account to GL",
-                    "currencyCode": "NGN",
-                    "credits": [
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "comments": {
+                    "type": "string",
+                    "example": "Transfer from GL to Account"
+                  },
+                  "credits": {
+                    "type": "array",
+                    "items": {},
+                    "example": []
+                  },
+                  "currencyCode": {
+                    "type": "string",
+                    "example": "NGN"
+                  },
+                  "customerAccounts": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "amount": {
+                          "type": "string",
+                          "example": "30000"
+                        },
+                        "customerAccountId": {
+                          "type": "string",
+                          "example": "000000458"
+                        }
+                      }
+                    },
+                    "example": [
                       {
-                        "glAccountId": "64",
-                        "amount": "10000"
+                        "amount": "30000",
+                        "customerAccountId": "000000458"
+                      }
+                    ]
+                  },
+                  "debits": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "amount": {
+                          "type": "string",
+                          "example": "30000"
+                        },
+                        "glAccountId": {
+                          "type": "string",
+                          "example": "30"
+                        }
+                      }
+                    },
+                    "example": [
+                      {
+                        "amount": "30000",
+                        "glAccountId": "30"
+                      }
+                    ]
+                  },
+                  "officeId": {
+                    "type": "string",
+                    "example": "1"
+                  },
+                  "operationType": {
+                    "type": "string",
+                    "example": "Credit"
+                  },
+                  "referenceNumber": {
+                    "type": "string",
+                    "example": "dsfvghtrhrg132evsbwd"
+                  },
+                  "uniqueReferenceKey": {
+                    "type": "string",
+                    "example": "dsfvghtrhrg132evsbwd-unq"
+                  },
+                  "transactionDate": {
+                    "type": "string",
+                    "example": "17 March 2022"
+                  }
+                }
+              },
+              "examples": {
+                "Customer Savings Account to Ledger": {
+                  "value": {
+                    "comments": "Transfer from GL to Account",
+                    "credits": [
+                       {
+                        "amount": "30000",
+                        "glAccountId": "30"
+                      }
+                    ],
+                    "currencyCode": "NGN",
+                    "customerAccounts": [
+                      {
+                        "amount": "30000",
+                        "customerAccountId": "000000458"
                       }
                     ],
                     "debits": [],
+                    "officeId": "1",
                     "operationType": "Debit",
-                    "referenceNumber": "Nibss-internal-002",
+                    "referenceNumber": "dsfvghtrhrg132evsbwd",
                     "uniqueReferenceKey": "dsfvghtrhrg132evsbwd-unq",
-                    "customerAccounts": [
-                      {
-                        "customerAccountId": "000000001",
-                        "amount": "10000"
-                      }
-                    ]
+                    "transactionDate": "17 March 2022"
                   }
                 },
-                "Ledger Account to Deposit Account": {
+                "Ledger to Customer Savings Account": {
                   "value": {
-                    "officeId": "1",
-                    "transactionDate": "31 July 2024",
                     "comments": "Transfer from GL to Account",
-                    "currencyCode": "NGN",
                     "credits": [],
-                    "debits": [
-                      {
-                        "glAccountId": "64",
-                        "amount": "100"
-                      }
-                    ],
-                    "operationType": "Credit",
-                    "referenceNumber": "98ddw123",
-                    "uniqueReferenceKey": "dsfvghtrhrg132evsbwd-unq",
+                    "currencyCode": "NGN",
                     "customerAccounts": [
                       {
-                        "customerAccountId": "000000001",
-                        "amount": "100"
+                        "amount": "30000",
+                        "customerAccountId": "000000458"
                       }
-                    ]
+                    ],
+                    "debits": [
+                      {
+                        "amount": "30000",
+                        "glAccountId": "30"
+                      }
+                    ],
+                    "officeId": "1",
+                    "operationType": "Credit",
+                    "referenceNumber": "dsfvghtrhrg132evsbwd",
+                    "uniqueReferenceKey": "dsfvghtrhrg132evsbwd-unq",
+                    "transactionDate": "17 March 2022"
                   }
+                }
+              }
+            },
+            "text/plain": {
+              "examples": {
+                "Ledger to Customer Savings Account": {
+                  "value": "{\r\n  \"officeId\": \"1\",\r\n  \"transactionDate\": \"20 August 2024\",\r\n  \"comments\": \"Transfer from GL to Account\",\r\n  \"currencyCode\": \"NGN\",\r\n  \"credits\": [],\r\n  \"debits\": [\r\n      {\r\n          \"glAccountId\": \"1\",\r\n          \"amount\": \"100000\"\r\n      }\r\n  ],\r\n  \"operationType\": \"Credit\",\r\n  \"referenceNumber\": \"9e8djd98ddw123\",\r\n//   \"uniqueReferenceKey\": \"9e8djd98ddw123\",\r\n  \"customerAccounts\": [\r\n    {\r\n      \"customerAccountId\": \"000000164\",\r\n      \"amount\": \"100000\"\r\n    }\r\n  ]\r\n}"
                 }
               }
             }
