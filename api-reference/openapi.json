@@ -4416,7 +4416,12 @@
                   "productId": {
                     "type": "number",
                     "example": 1
+                  },
+                  "openingBalance": {
+                    "type": "string",
+                    "example": 500
                   }
+
                 }
               },
               "examples": {
@@ -4425,7 +4430,8 @@
                     "activate": false,
                     "clientId": 1092,
                     "createdDate": "15 March 2022",
-                    "productId": 1
+                    "productId": 1,
+                    "openingBalance": "500"
                   }
                 }
               }
@@ -4478,28 +4484,13 @@
                   "activate": {
                     "type": "boolean",
                     "example": false
-                  },
-                  "clientId": {
-                    "type": "number",
-                    "example": 1092
-                  },
-                  "createdDate": {
-                    "type": "string",
-                    "example": "15 March 2022"
-                  },
-                  "productId": {
-                    "type": "number",
-                    "example": 1
                   }
                 }
               },
               "examples": {
                 "Enable Pool On Savings Account": {
                   "value": {
-                    "activate": false,
-                    "clientId": 1092,
-                    "createdDate": "15 March 2022",
-                    "productId": 1
+                    "activate": false
                   }
                 }
               }
