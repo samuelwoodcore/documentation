@@ -4483,14 +4483,14 @@
                 "properties": {
                   "activate": {
                     "type": "boolean",
-                    "example": false
+                    "example": true
                   }
                 }
               },
               "examples": {
                 "Enable Pool On Savings Account": {
                   "value": {
-                    "activate": false
+                    "activate": true
                   }
                 }
               }
