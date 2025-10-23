@@ -1527,6 +1527,75 @@
         ]
       }
     },
+
+    "/savingsaccounts/{savingsId}/close": {
+      "post": {
+        "tags": [
+          "Deposit Accounts",
+          "Transactions",
+          "ISO Block"
+        ],
+        "summary": "Close Savings Account",
+        "operationId": "closeSavingsAccount",
+        "parameters": [
+          {
+            "name": "savingsId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "close_date": {
+                    "type": "string",
+                    "example": "01 January 2025"
+                  },
+                  "comment": {
+                    "type": "string",
+                    "example": "closed"
+                  }
+                }
+              },
+              "examples": {
+                "Close Savings Account": {
+                  "value": {
+                    "comment": "close",
+                    "close_date": "17 March 2022"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "{}",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+
+
     "/transactions": {
       "get": {
         "tags": [
