@@ -30,6 +30,7 @@
     "./api-reference/endpoint/savingsaccounts_688_removepnc",
     "./api-reference/endpoint/savingsaccounts_688_setpnd",
     "./api-reference/endpoint/savingsaccounts_688_removepnd",
+    "./api-reference/endpoint/savingsaccounts_688_close",
     "./api-reference/endpoint/transactions",
     "./api-reference/endpoint/transactions_4",
     "./api-reference/endpoint/savingsaccounts_24_deposit",
